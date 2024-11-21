@@ -54,7 +54,7 @@ datetime,season,workingday,weather,temp,feels like temp,humidity,windspeed,Nb of
 2012-08-19 03:00:00,fall,no,"Mist",25.42,30.305,61,11.0014,55
 2012-08-19 04:00:00,fall,no,"Mist",25.42,30.305,65,11.0014,26
 2012-08-19 05:00:00,fall,no,"Mist",24.6,29.545,73,8.9981,11
-2012-08-19 06:00:00,fall,no,"Cloudy ",25.42,30.305,69,7.0015,20
+2012-08-19 06:00:00,fall,no,Cloudy,25.42,30.305,69,7.0015,20
 2012-08-19 07:00:00,fall,no,"Mist",25.42,30.305,69,8.9981,41
 2012-08-19 08:00:00,fall,no,"Mist",26.24,30.305,69,7.0015,124
 2012-08-19 09:00:00,fall,no,"Mist",27.06,31.06,74,0,270
@@ -88,12 +88,11 @@ datetime,season,workingday,weather,temp,feels like temp,humidity,windspeed,Nb of
 2012-09-01 13:00:00,fall,no,"Mist",33.62,38.635,52,6.0032,504
 2012-09-01 14:00:00,fall,no,"Mist",35.26,39.395,44,11.0014,514
 2012-09-01 15:00:00,fall,no,"Mist",35.26,39.395,44,19.0012,563
-2012-09-01 16:00:00,fall,no,"Cloudy ",34.44,39.395,49,11.0014,462
+2012-09-01 16:00:00,fall,no,Cloudy,34.44,39.395,49,11.0014,462
 2012-09-01 17:00:00,fall,no,"Mist",33.62,38.635,52,0,463
-2012-09-01 18:00:00,fall,no,"Cloudy ",33.62,38.635,52,0,442
+2012-09-01 18:00:00,fall,no,Cloudy,33.62,38.635,52,0,442
 2012-09-01 19:00:00,fall,no,Light Rain/snow,31.98,37.12,62,0,392
 2012-09-01 20:00:00,fall,no,Light Rain/snow,31.16,36.365,67,16.9979,207
-datetime,season,workingday,weather,temp,feels like temp,humidity,windspeed,Nb of rental
 2012-09-01 21:00:00,fall,no,Light Rain/snow,26.24,28.79,89,0,104
 2012-09-01 22:00:00,fall,no,"Mist",27.06,29.545,89,0,78
 2012-09-01 23:00:00,fall,no,Clear,27.06,29.545,89,6.0032,145
