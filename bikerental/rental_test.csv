@@ -1,3 +1,4 @@
+datetime,season,workingday,weather,temp,feels like temp,humidity,windspeed,Nb of rental
 2012-08-16 23:00:00,fall,yes,Clear,28.7,32.575,54,7.0015,226
 2012-08-17 00:00:00,fall,yes,Clear,27.88,12.12,57,11.0014,88
 2012-08-17 01:00:00,fall,yes,Clear,27.06,12.12,65,7.0015,54
@@ -92,6 +93,7 @@
 2012-09-01 18:00:00,fall,no,"Cloudy ",33.62,38.635,52,0,442
 2012-09-01 19:00:00,fall,no,Light Rain/snow,31.98,37.12,62,0,392
 2012-09-01 20:00:00,fall,no,Light Rain/snow,31.16,36.365,67,16.9979,207
+datetime,season,workingday,weather,temp,feels like temp,humidity,windspeed,Nb of rental
 2012-09-01 21:00:00,fall,no,Light Rain/snow,26.24,28.79,89,0,104
 2012-09-01 22:00:00,fall,no,"Mist",27.06,29.545,89,0,78
 2012-09-01 23:00:00,fall,no,Clear,27.06,29.545,89,6.0032,145
