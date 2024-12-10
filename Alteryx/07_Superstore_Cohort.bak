@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="138" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File>D:\git\dataprep-handbook\superstore\samplesuperstore.csv</File>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>samplesuperstore.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Row ID" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Order ID" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Order Date" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Ship Date" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Ship Mode" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Customer ID" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Customer Name" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Segment" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Country" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="City" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="State" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Postal Code" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Region" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Product ID" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Category" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Sub-Category" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Product Name" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Sales" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Quantity" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Discount" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+            <Field name="Profit" size="254" source="File: D:\git\dataprep-handbook\superstore\samplesuperstore.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="246" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Order Date</InputFieldName>
+          <Language>English</Language>
+          <Format>MM-dd-yyyy</Format>
+          <OutputFieldName>Order Date converted</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Order Date From:
+MM-dd-yyyy</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="378" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>PeriodBefore</Operator>
+            <Field>Order Date converted</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2017-12-31</PeriodDate>
+              <PeriodType>years</PeriodType>
+              <PeriodCount>1</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2024-12-09 14:43:12</StartDate>
+              <EndDate>2024-12-09 14:43:12</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Order Date converted] &gt;= ToDate(
+  DateTimeAdd("2017-12-31", -1, "years")
+) AND...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="546" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Customer ID" action="GroupBy" rename="Customer ID" />
+            <SummarizeField field="Order Date converted" action="Min" rename="Min_Order Date converted" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="678" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeMonth([Min_Order Date converted])" field="cohort_month" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[cohort_month = DateTimeMonth([Min_Order Date converted])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="942" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeMonth([Order Date converted])" field="order_month" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[order_month = DateTimeMonth([Order Date converted])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="810" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Customer ID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Customer ID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_Customer ID" selected="True" rename="Right_Customer ID" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1086" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Customer ID" selected="True" />
+            <SelectField field="Min_Order Date converted" selected="False" />
+            <SelectField field="Row ID" selected="True" />
+            <SelectField field="Order ID" selected="True" />
+            <SelectField field="Order Date" selected="True" />
+            <SelectField field="Ship Date" selected="True" />
+            <SelectField field="Ship Mode" selected="True" />
+            <SelectField field="Right_Customer ID" selected="False" />
+            <SelectField field="Customer Name" selected="True" />
+            <SelectField field="Segment" selected="True" />
+            <SelectField field="Country" selected="True" />
+            <SelectField field="City" selected="True" />
+            <SelectField field="State" selected="True" />
+            <SelectField field="Postal Code" selected="True" />
+            <SelectField field="Region" selected="True" />
+            <SelectField field="Product ID" selected="True" />
+            <SelectField field="Category" selected="True" />
+            <SelectField field="Sub-Category" selected="True" />
+            <SelectField field="Product Name" selected="True" />
+            <SelectField field="Sales" selected="True" />
+            <SelectField field="Quantity" selected="True" />
+            <SelectField field="Discount" selected="True" />
+            <SelectField field="Profit" selected="True" />
+            <SelectField field="Order Date converted" selected="True" />
+            <SelectField field="cohort_month" selected="True" />
+            <SelectField field="order_month" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="8" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Join" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>07_Superstore_Cohort</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="aceb25d5-4b01-4eb9-886a-f693776bc083" />
+      <Telemetry>
+        <PreviousWorkflowId value="4da999c4-df41-4692-9c68-a26c232d17d0" />
+        <OriginWorkflowId value="4da999c4-df41-4692-9c68-a26c232d17d0" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

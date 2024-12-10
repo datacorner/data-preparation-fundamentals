@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="402" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="temp" selected="True" type="Double" size="8" />
+            <SelectField field="feels like temp" selected="True" type="Double" size="8" />
+            <SelectField field="humidity" selected="True" type="Double" size="8" />
+            <SelectField field="windspeed" selected="True" type="Double" size="8" />
+            <SelectField field="Nb of rental" selected="True" type="Double" size="8" />
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="234" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File>D:\git\dataprep-handbook\bikerental\rental_train.csv</File>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>rental_train.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="datetime" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="season" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="workingday" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="weather" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="temp" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="feels like temp" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="humidity" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="windspeed" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="Nb of rental" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="JupyterCode">
+        <Position x="534" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <WorkflowName>d:\git\dataprep-handbook\alteryx\06_bikerental_scaling.yxmd</WorkflowName>
+          <JupyterProduction>false</JupyterProduction>
+          <vEnvName>designerbasetools_venv</vEnvName>
+          <DefaultVenv>1</DefaultVenv>
+          <productionModeScript />
+          <Port>64544</Port>
+          <JupyterGuidDir>160803d4d0cd152ac1d37bea8f6d8ca3</JupyterGuidDir>
+          <JupyterGuidCopy />
+          <LastExecutedByEngineVersion>2024.1.1.93</LastExecutedByEngineVersion>
+          <Notebook><![CDATA[{"cells":[{"metadata":{"ayx":{"cell_css":"border: 3px solid #357; margin: 4px; background: #fbffff","contents_keyword":"Alteryx.help()","label":"info"}},"cell_type":"markdown","source":["Run `Alteryx.help()` for info about useful functions.  \n","i.e., `Alteryx.read(\"#1\")`, `Alteryx.write(df,1)`, `Alteryx.getWorkflowConstant(\"Engine.WorkflowDirectory\")`"]},{"metadata":{"ayx":{"cell_css":"border: 1px solid #58a; margin: 2px;","contents_keyword":"installPackages","label":"deps"},"execution":{"iopub.execute_input":"2024-12-09T13:31:59.818624Z","iopub.status.busy":"2024-12-09T13:31:59.817110Z","iopub.status.idle":"2024-12-09T13:31:59.857658Z","shell.execute_reply":"2024-12-09T13:31:59.855659Z"}},"cell_type":"code","source":["# List all non-standard packages to be imported by your \n","# script here (only missing packages will be installed)\n","from ayx import Package\n","#Package.installPackages(['pandas','numpy'])"],"execution_count":1,"outputs":[]},{"metadata":{"execution":{"iopub.execute_input":"2024-12-09T13:31:59.863659Z","iopub.status.busy":"2024-12-09T13:31:59.863659Z","iopub.status.idle":"2024-12-09T13:32:09.935111Z","shell.execute_reply":"2024-12-09T13:32:09.932112Z"}},"cell_type":"code","source":["from ayx import Alteryx\n","from sklearn import preprocessing\n","import pandas\n","\n","df=Alteryx.read(\"#1\")\n","\n","scaler = preprocessing.MinMaxScaler()\n","\n","df[df.columns] = scaler.fit_transform(df[df.columns])\n","\n","Alteryx.write(df,1)\n","\n","df\n"],"execution_count":2,"outputs":[]}],"metadata":{"kernelspec":{"name":"designerbasetools_venv","display_name":"designerbasetools_venv","language":"python"},"language_info":{"name":"python","version":"3.10.13","mimetype":"text/x-python","codemirror_mode":{"name":"ipython","version":3},"pygments_lexer":"ipython3","nbconvert_exporter":"python","file_extension":".py"}},"nbformat":4,"nbformat_minor":2}]]></Notebook>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxJupyterPluginEngine.dll" EngineDllEntryPoint="AlteryxJupyter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="618" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\benoit\AppData\Local\Temp\Alteryx\Engine_8084_ec682c7cee894f3c95c926db4725c23c_\Engine_8084_867b12df91dabf47ad007b17c0752ceb~.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection name="#1">
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output1" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>06_BikeRental_Scaling</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="9943b92a-d1fe-4294-a8ba-a9f6cef380cc" />
+      <Telemetry>
+        <PreviousWorkflowId value="b3f63d83-660a-4712-b290-016312aff404" />
+        <OriginWorkflowId value="b3f63d83-660a-4712-b290-016312aff404" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
