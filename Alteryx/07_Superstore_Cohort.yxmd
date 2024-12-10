@@ -302,7 +302,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1434" y="222" />
+        <Position x="1410" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -333,7 +333,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1530" y="222" />
+        <Position x="1506" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -372,7 +372,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="PlotlyCharting">
-        <Position x="1626" y="222" />
+        <Position x="1590" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -492,7 +492,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1746" y="222" />
+        <Position x="1674" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -527,7 +527,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
           <Text>Prepare the cohorts</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
-          <FillColor name="White" />
+          <FillColor r="255" g="255" b="128" />
           <Shape shape="0" />
           <Justification Justification="4" />
         </Configuration>
@@ -547,7 +547,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
           <Text>We calculate the number of months since the first purchase, and the retention duration</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
-          <FillColor name="White" />
+          <FillColor r="255" g="255" b="128" />
           <Shape shape="0" />
           <Justification Justification="4" />
         </Configuration>
@@ -567,7 +567,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
           <Text>Create Cohort Group (First Purchase Month by customer)</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
-          <FillColor name="White" />
+          <FillColor r="255" g="255" b="128" />
           <Shape shape="0" />
           <Justification Justification="4" />
         </Configuration>
@@ -587,7 +587,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
           <Text>Cohort Retention Calculation</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
-          <FillColor name="White" />
+          <FillColor r="255" g="255" b="128" />
           <Shape shape="0" />
           <Justification Justification="4" />
         </Configuration>
@@ -607,7 +607,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
           <Text>Normalize Retention</Text>
           <Font name="Arial" size="8.25" style="0" />
           <TextColor name="Black" />
-          <FillColor name="White" />
+          <FillColor r="255" g="255" b="128" />
           <Shape shape="0" />
           <Justification Justification="4" />
         </Configuration>
