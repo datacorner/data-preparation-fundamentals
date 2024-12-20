@@ -1,4 +1,5 @@
 # Data preparation handbook
+[](./img/Cover-book-MEAP)
 
 ## Data sources per chapter
 * **Chapter 1** Introduction to data preparation
@@ -8,7 +9,7 @@
 	* Titanic [Original dataset](https://www.kaggle.com/competitions/titanic)
 * **Chapter 4** Techniques for data transformation
 	* Video games [Original dataset](https://www.kaggle.com/datasets/mohamedtarek01234/steam-games-reviews-and-rankings)
-* **Chapter 5** Data enrichment
+* **Chapter 5** Reveiling informations
 	* Top restaurants in LA (2023) [Original dataset](https://www.kaggle.com/datasets/lorentzyeung/top-240-recommended-restaurants-in-la-2023)
 	* BBC News [Original dataset](https://www.kaggle.com/datasets/gpreda/bbc-news)
 	* Folder Images
