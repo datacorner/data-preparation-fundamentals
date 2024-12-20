@@ -1,5 +1,5 @@
-# Data preparation handbook
-[](./img/Cover-book-MEAP)
+# Data preparation handbook (code and resources)
+[![](img/Cover-book-MEAP.jpg)](https://mng.bz/1XaR)
 
 ## Data sources per chapter
 * **Chapter 1** Introduction to data preparation
