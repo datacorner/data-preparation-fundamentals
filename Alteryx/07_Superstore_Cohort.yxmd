@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="66" y="234" />
+        <Position x="54" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -57,7 +57,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
-        <Position x="258" y="234" />
+        <Position x="246" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -78,7 +78,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="390" y="234" />
+        <Position x="378" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -111,7 +111,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="510" y="114" />
+        <Position x="498" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -130,7 +130,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="582" y="114" />
+        <Position x="570" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -149,7 +149,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="798" y="234" />
+        <Position x="786" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -168,7 +168,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="690" y="234" />
+        <Position x="678" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -199,7 +199,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="918" y="234" />
+        <Position x="906" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -218,7 +218,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1038" y="234" />
+        <Position x="1026" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -241,7 +241,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="1146" y="234" />
+        <Position x="1134" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -261,7 +261,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="162" y="234" />
+        <Position x="150" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -283,7 +283,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="1338" y="138" />
+        <Position x="1326" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -302,7 +302,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1410" y="222" />
+        <Position x="1398" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -333,7 +333,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1506" y="222" />
+        <Position x="1494" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -352,7 +352,7 @@ MM-dd-yyyy</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="1242" y="234" />
+        <Position x="1230" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -372,7 +372,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="PlotlyCharting">
-        <Position x="1590" y="222" />
+        <Position x="1578" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -492,7 +492,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1674" y="222" />
+        <Position x="1662" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -520,7 +520,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="174" y="42" width="720" height="48" />
+        <Position x="162" y="54" width="720" height="48" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -540,7 +540,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="906" y="42" width="144" height="84" />
+        <Position x="894" y="54" width="144" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -560,7 +560,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="498" y="294" width="180" height="36" />
+        <Position x="486" y="306" width="180" height="36" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -580,7 +580,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1062" y="42" width="228" height="84" />
+        <Position x="1050" y="54" width="228" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -600,7 +600,7 @@ Months_Since_First_Purchase - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1302" y="42" width="228" height="84" />
+        <Position x="1290" y="54" width="228" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
