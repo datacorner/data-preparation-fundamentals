@@ -1,10 +1,12 @@
 import pandas as pd
-import re
-import seaborn as sns
-import matplotlib.pyplot as plt
 from ydata_profiling import ProfileReport
 
 def initialize():
+    """ Read the source file (Titanic disaster) and provide a dataframe
+
+    Returns:
+        dataframe: titanic dataset
+    """
     # read the CSV file
     df = pd.read_csv("../Titanic disaster/train.csv")
     # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
@@ -13,11 +15,21 @@ def initialize():
     return df
 
 def firstlook(_df):
+    """displays some Pandas basics stats about the dataset
+
+    Args:
+        _df (dataframe): dataset to analyze
+    """
     print(_df.head())
     print(_df.info())
     print(_df.describe())
     
 def eda(_df):
+    """ Build out the YData-Profiling report (HTML)
+
+    Args:
+        _df (dataframe): dataset to analyze
+    """
     # Generate the profile report
     profile = ProfileReport(_df, title="Titanic Dataset Profiling Report")
     # Build the report
@@ -25,5 +37,5 @@ def eda(_df):
     
 if __name__ == "__main__":
     df = initialize()
-    firstlook(df)
+    #firstlook(df)
     eda(df)
