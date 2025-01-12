@@ -1,6 +1,12 @@
 import pandas as pd
 import json
 
+# Import common constants and functions
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+import common as C
+
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
 
@@ -8,7 +14,7 @@ def initialize():
         dataframe: dataset
     """
     # read the JSON file
-    with open('../vgames/games_genres_valve.json', 'r',  encoding='utf-8-sig') as file:
+    with open(C.DATASET_FOLDER + 'vgames/games_genres_valve.json', 'r',  encoding='utf-8-sig') as file:
         data = json.load(file) #A
         df_json = pd.DataFrame(data) 
     return df_json

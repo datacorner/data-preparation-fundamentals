@@ -4,6 +4,12 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Import common constants and functions
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+import common as C
+
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
 
@@ -11,7 +17,7 @@ def initialize():
         dataframe: titanic dataset
     """
     # read the CSV file
-    df = pd.read_csv("../Titanic disaster/train.csv")
+    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
     # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
     df['SurvivedProba'] = df['Survived']
     df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})

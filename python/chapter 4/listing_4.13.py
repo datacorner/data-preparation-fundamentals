@@ -2,6 +2,12 @@ import pandas as pd
 import json
 import sqlite3
 
+# Import common constants and functions
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+import common as C
+
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
 
@@ -9,15 +15,15 @@ def initialize():
         dataframe: dataset read
     """
     # read the CSV file
-    df_csv = pd.read_csv('../vgames/games_about.csv', delimiter=",")
+    df_csv = pd.read_csv(C.DATASET_FOLDER + 'vgames/games_about.csv', delimiter=",")
     # read the JSON file
-    with open('../vgames/games_genres_valve.json', 'r',  encoding='utf-8-sig') as file:
+    with open(C.DATASET_FOLDER + 'vgames/games_genres_valve.json', 'r',  encoding='utf-8-sig') as file:
         data = json.load(file) #A
         df_json = pd.DataFrame(data) 
     # read the Excel file
-    df_excel = pd.read_excel('../vgames/games_reviews.xlsx')
+    df_excel = pd.read_excel(C.DATASET_FOLDER + 'vgames/games_reviews.xlsx')
     # read the data in the DB
-    conn = sqlite3.connect('../vgames/games_db.sqlite') #A
+    conn = sqlite3.connect(C.DATASET_FOLDER + 'vgames/games_db.sqlite') #A
     query = "select games.name, games.publisher, games.year, genres.genre "
     query += "from games, genres "
     query += "where games.genre = genres.ID" #B
