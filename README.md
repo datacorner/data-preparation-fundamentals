@@ -55,7 +55,8 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 **N.A.**
 
 ### Chapter 9 - Visual data preparation with Alteryx
-The Alteryx exports (yxmd files)can be found [here](./code/chapter%209/)
+The Alteryx exports (yxmd files)can be found [here](./code/chapter%209/), you can just copy the file on your desktop and open them by using the Alteryx client.
+
 *Note: the exports have been done with Alteryx v2024.1.1.93  Patch: 3*
 
 ### Chapter 10 - Data preparation at scale
@@ -64,3 +65,5 @@ Available soon
 ### Chapter 11 - Trends and future challenges
 Available soon
 
+# Profiling
+Most of the datasets used in this book have already been profiled. The outcomes can be found [here](/profiles).

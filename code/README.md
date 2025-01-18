@@ -2,7 +2,7 @@
 In this folder you'll find all the book's listings.  
 **Note: Each python file follows the book naming convention (meaning listing_3.4.py refers to the listing 3.4 you can find in the chapter 3).**
 
-# Python environment creation
+# Creating the Python environment
 To leverage the resources provided in this repository it's first recommended to create a python virtual environment. 
 
 ## Why Use Virtual Python Environments?
@@ -61,6 +61,14 @@ There are several ways to create and manage virtual environments in Python:
     ```bash
     pip install -r requirements.txt
     ```
+# Installing Alteryx
+Fortunately, Alteryx offers a free trial version, [available for download here](https://www.alteryx.com/designer-trial/free-trial-alteryx/designer-trial-form). The trial lasts for 30 days, providing ample time to explore its capabilities and evaluate its potential for data preparation and analysis. As of today, the Alteryx trial version installation process is straightforward and user-friendly, allowing us to get up and running quickly. 
+1.	**Download the Installer:** Start by visiting the Alteryx Designer Trial page. Fill out the registration form with basic details to access the download link for the trial version.
+2.	**Run the Installation:** Once the installer file is downloaded, we can launch it and follow the guided setup process. The installer will prompt us to accept the license agreement and choose a destination folder for the installation.
+3.	**Initial Setup and Activation:** After the installation completes, open Alteryx Designer. We will be prompted to activate the 30-day trial by signing in with our Alteryx account (created during the download process).
+4.	**Access Sample Workflows:** Upon activation, Alteryx Designer provides access to sample workflows and built-in tutorials to help you get started quickly. These resources are useful for understanding key functionalities like data input, blending, and transformation.
 
-# Profiling
-The datasets used in this book have already been profiled. The outcome can be found in the /profiles folder.
+SYSTEM REQUIREMENTS Alteryx Designer requires a Windows operating system, with recommended specifications including at least 8GB of RAM and adequate disk space for processing large datasets.
+The entire process is designed to take only a few minutes, ensuring you can begin exploring Alteryx’s features right away without needing any advanced technical setup.
+
+*Note: the exports provided in this repository have been created with Alteryx v2024.1.1.93  Patch: 3*
