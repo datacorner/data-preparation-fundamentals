@@ -32,14 +32,13 @@ def firstlook(_df):
     
 def eda(_df):
     """ Build out the YData-Profiling report (HTML)
-
     Args:
         _df (dataframe): dataset to analyze
     """
     # Generate the profile report
     profile = ProfileReport(_df, title="Titanic Dataset Profiling Report")
     # Build the report
-    profile.to_file("titanic_report.html")
+    profile.to_file(C.PROFILE_FOLDER + "titanic_report.html")
     
 if __name__ == "__main__":
     df = initialize()

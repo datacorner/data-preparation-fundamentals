@@ -3,6 +3,7 @@ import google.generativeai as genai
 import time
 
 DATASET_FOLDER = "../data/"
+PROFILE_FOLDER = "../profiles/"
 
 def get_gemini_response(prompt, max_retries=3, delay=1):
     """
