@@ -3,6 +3,7 @@ attrs==24.3.0
 beautifulsoup4==4.12.3
 bertopic==0.16.4
 blis==1.1.0
+cachetools==5.5.0
 catalogue==2.0.10
 certifi==2024.12.14
 charset-normalizer==3.4.1
@@ -20,11 +21,22 @@ filelock==3.16.1
 fonttools==4.55.3
 fsspec==2024.12.0
 fuzzywuzzy==0.18.0
+google-ai-generativelanguage==0.6.10
+google-api-core==2.24.0
+google-api-python-client==2.159.0
+google-auth==2.37.0
+google-auth-httplib2==0.2.0
+google-generativeai==0.8.3
+googleapis-common-protos==1.66.0
+grpcio==1.69.0
+grpcio-status==1.69.0
 hdbscan==0.8.40
 htmlmin==0.1.12
+httplib2==0.22.0
 huggingface-hub==0.27.1
 idna==3.10
 ImageHash==4.3.1
+imbalanced-learn==0.13.0
 Jinja2==3.1.5
 joblib==1.4.2
 kiwisolver==1.4.8
@@ -52,6 +64,10 @@ phik==0.12.4
 pillow==11.1.0
 plotly==5.24.1
 preshed==3.0.9
+proto-plus==1.25.0
+protobuf==5.29.3
+pyasn1==0.6.1
+pyasn1_modules==0.4.1
 pydantic==2.10.4
 pydantic_core==2.27.2
 Pygments==2.19.1
@@ -67,6 +83,7 @@ RapidFuzz==3.11.0
 regex==2024.11.6
 requests==2.32.3
 rich==13.9.4
+rsa==4.9
 safetensors==0.5.2
 scikit-learn==1.6.1
 scipy==1.13.1
@@ -75,6 +92,7 @@ sentence-transformers==3.3.1
 setuptools==75.6.0
 shellingham==1.5.4
 six==1.17.0
+sklearn-compat==0.1.3
 smart-open==7.1.0
 soupsieve==2.6
 spacy==3.8.3
@@ -95,6 +113,7 @@ typer==0.15.1
 typing_extensions==4.12.2
 tzdata==2024.2
 umap-learn==0.5.7
+uritemplate==4.1.1
 urllib3==2.3.0
 visions==0.7.6
 wasabi==1.1.3
