@@ -5,6 +5,7 @@
 * **Chapter 1** Introduction to data preparation
 * **Chapter 2** Unveiling the secrets of data
 	* Titanic [Original dataset](https://www.kaggle.com/competitions/titanic)
+        * [Code](./code/chapter%202/) 
 *  **Chapter 3** Data quality challenges
 	* Titanic [Original dataset](https://www.kaggle.com/competitions/titanic)
 * **Chapter 4** Techniques for data transformation
