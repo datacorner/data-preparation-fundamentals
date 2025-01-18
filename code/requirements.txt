@@ -30,6 +30,7 @@ google-generativeai==0.8.3
 googleapis-common-protos==1.66.0
 grpcio==1.69.0
 grpcio-status==1.69.0
+grpcio-tools==1.69.0
 hdbscan==0.8.40
 htmlmin==0.1.12
 httplib2==0.22.0
