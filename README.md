@@ -4,8 +4,9 @@
 ## Data sources per chapter
 * **Chapter 1** Introduction to data preparation
 * **Chapter 2** Unveiling the secrets of data
-	* Titanic [Original dataset](https://www.kaggle.com/competitions/titanic)
-        * [Code](./code/chapter%202/) 
+	* Original Titanic dataset and description [Original dataset](https://www.kaggle.com/competitions/titanic)
+	* [Chapter python code](./code/chapter%202/)
+	* [Dataset used in the the book](./data/titanic/)
 *  **Chapter 3** Data quality challenges
 	* Titanic [Original dataset](https://www.kaggle.com/competitions/titanic)
 * **Chapter 4** Techniques for data transformation
