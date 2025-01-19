@@ -48,11 +48,11 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 
 ### Chapter 7 - Data preparation for dashboards and reports
 * [Original Superstore dataset and description](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
-* [Chapter python code](./code/chapter%206/)
+* [Chapter python code](./code/chapter%207/)
 * [Dataset used in the the book](./data/superstore/)
 
 ### Chapter 8 - Generative AI for data preparation
-**N.A.**
+* [Chapter python code](./code/chapter%208/)
 
 ### Chapter 9 - Visual data preparation with Alteryx
 The Alteryx exports (yxmd files)can be found [here](./code/chapter%209/), you can just copy the file on your desktop and open them by using the Alteryx client.
