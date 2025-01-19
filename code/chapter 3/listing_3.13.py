@@ -10,7 +10,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -22,6 +21,14 @@ def initialize():
     return df
 
 def mahalanobis_method(data):
+    """
+    Identifies potential outliers in a dataset using the Mahalanobis distance method.  
+    Applies the EllipticEnvelope algorithm to detect outliers based on the data's distribution.
+    Parameters:
+        data (pd.Series): The dataset to analyze for outliers.
+    Returns:
+        pd.Series: A subset of the input data containing the detected outliers.
+    """
     X = data.values.reshape(-1, 1) #A
     outlier_detector = EllipticEnvelope(contamination=0.1, 
                                         random_state=42) #B

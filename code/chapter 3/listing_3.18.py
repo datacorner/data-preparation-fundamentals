@@ -10,7 +10,7 @@ if __name__ == "__main__":
         'ref_id': [1, 1, 2, 3],
     } 
 
-    refdata = { 'ref_id': [1, 2, 3], #B: Reference table
+    refdata = { 'ref_id': [1, 2, 3], 
             'Reference': ['Ref1', 'Ref2', 'Ref3']}
 
     df = pd.DataFrame(data)
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print("Original Data:")
     print(df)
     
-    df['std_Name'] = df['Name'].str.strip().str.lower() #B
+    df['std_Name'] = df['Name'].str.strip().str.lower()
     def parse_date(date_str):
         date_formats = ['%d/%m/%Y', '%m-%d-%Y', '%Y.%m.%d', '%Y/%m/%d']
         for fmt in date_formats:

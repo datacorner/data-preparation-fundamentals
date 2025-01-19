@@ -10,7 +10,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -22,6 +21,15 @@ def initialize():
     return df
 
 def iqr_method(data):
+    """ This function identifies potential outliers in a dataset using the 
+        Interquartile Range (IQR) method. It calculates the IQR, determines the 
+        lower and upper bounds for outlier detection, and returns data points 
+        that fall outside these bounds.
+    Parameters:
+        data (pd.Series): A Pandas Series containing numerical data to analyze for outliers.
+    Returns:
+        pd.Series: A subset of the input Series containing the detected outliers.
+    """
     Q1 = data.quantile(0.25)
     Q3 = data.quantile(0.75)
     IQR = Q3 - Q1

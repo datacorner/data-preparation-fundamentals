@@ -11,7 +11,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -23,12 +22,13 @@ def initialize():
     return df
 
 def compare_dist(distrib1, distrib2, nbbins = 40):
-    """ This funtion is an utility to display the difference between two ages distribution
-
-    Args:
-        distrib1 (dataframe): First distribution 
-        distrib2 (dataframe): Second distribution to compare with
-        nbbins (int, optional): Nb bins for histogram. Defaults to 40.
+    """
+    Compares and visualizes the differences between two age distributions.  
+    Creates a side-by-side bar chart to highlight discrepancies in frequency across age bins.
+    Parameters:
+        distrib1 (pd.Series or np.ndarray): The first age distribution to compare.
+        distrib2 (pd.Series or np.ndarray): The second age distribution to compare with.
+        nbbins (int, optional): Number of bins for the histogram. Defaults to 40.
     """
     # Set up the plot
     plt.figure(figsize=(15, 6))
@@ -56,12 +56,21 @@ def compare_dist(distrib1, distrib2, nbbins = 40):
     plt.show()
 
 def cap_outliers(data, lower_percentile=0.01, upper_percentile=0.99):
+    """
+    Caps outliers in a dataset by limiting values within specified percentiles.  
+    Values below the lower percentile are set to the lower threshold, and values above the upper percentile are capped to the upper threshold.
+    Parameters:
+        data (pd.Series): The dataset to cap outliers in.
+        lower_percentile (float, optional): The lower percentile for outlier capping. Defaults to 0.01.
+        upper_percentile (float, optional): The upper percentile for outlier capping. Defaults to 0.99.
+    Returns:
+        pd.Series: The dataset with outliers capped within the specified percentiles.
+    """
     lower = data.quantile(lower_percentile)
     upper = data.quantile(upper_percentile)
     print (f"lower {lower} - Uppper {upper}")
     data = data.clip(lower, upper)
     return data
-
 
 if __name__ == "__main__":
     df = initialize()

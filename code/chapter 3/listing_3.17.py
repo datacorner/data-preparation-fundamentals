@@ -11,7 +11,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -23,12 +22,13 @@ def initialize():
     return df
 
 def compare_dist(distrib1, distrib2, nbbins = 40):
-    """ This funtion is an utility to display the difference between two ages distribution
-
-    Args:
-        distrib1 (dataframe): First distribution 
-        distrib2 (dataframe): Second distribution to compare with
-        nbbins (int, optional): Nb bins for histogram. Defaults to 40.
+    """
+    Compares and visualizes the differences between two age distributions.  
+    Creates a side-by-side bar chart to highlight discrepancies in frequency across age bins.
+    Parameters:
+        distrib1 (pd.Series or np.ndarray): The first age distribution to compare.
+        distrib2 (pd.Series or np.ndarray): The second age distribution to compare with.
+        nbbins (int, optional): Number of bins for the histogram. Defaults to 40.
     """
     # Set up the plot
     plt.figure(figsize=(15, 6))
@@ -56,10 +56,18 @@ def compare_dist(distrib1, distrib2, nbbins = 40):
     plt.show()
 
 def normalize_age(age):
-    age_transformed, lambda_param = stats.boxcox(age) #A
+    """
+    Normalizes age data using the Box-Cox transformation to stabilize variance and make the data more normally distributed.  
+    The transformation applies a parameter (lambda) to the age data, and the normalized data is returned.
+    Parameters:
+        age (pd.Series): The age data to normalize
+    Returns:
+        pd.Series: The normalized age data after applying the Box-Cox transformation.
+    """
+    age_transformed, lambda_param = stats.boxcox(age) 
     age_normalized = pd.Series(age_transformed, 
-                               index=age.index, 
-                               name='Age') #B
+                                index=age.index, 
+                                name='Age') 
     print(f"Box-Cox applied with lambda = {lambda_param:.4f}")
     return age_normalized
 

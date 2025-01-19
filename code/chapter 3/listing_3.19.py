@@ -12,5 +12,3 @@ if __name__ == "__main__":
 
     print("Updated Data:")
     print(df)
-
-

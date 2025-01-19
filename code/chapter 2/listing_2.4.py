@@ -11,7 +11,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -24,14 +23,12 @@ def initialize():
 
 def analyzeSurvivalRateByGenderAge(titanic_data):
     """Analyze the Survival Rates by Gender and Age
-
     Args:
         _df (dataframe): titanic dataset
     """
     # Define age bins and labels
     age_bins = [0, 10, 20, 30, 40, 50, 60, 70, 80]
     age_labels = ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80']
-
     # Create a new 'AgeGroup' column based on the bins
     titanic_data['AgeGroup'] = pd.cut(titanic_data['Age'], bins=age_bins, labels=age_labels, right=False)
     # Group by 'Sex', 'AgeGroup', and 'Survived', then count the number of occurrences
@@ -41,7 +38,7 @@ def analyzeSurvivalRateByGenderAge(titanic_data):
     # Separate data for male and female
     male_survival = survival_by_gender_age.loc['male']['SurvivalRate']
     female_survival = survival_by_gender_age.loc['female']['SurvivalRate']
-
+    
     # Plot the data
     plt.figure(figsize=(10, 6))
     # Bar width

@@ -2,14 +2,14 @@ import pandas as pd
 from fuzzywuzzy import fuzz
 
 def fuzzy_deduplication(df, threshold=90):
-    """ Define a function for fuzzy matching rows
-
-    Args:
-        df (dataframe): dataset to undup
-        threshold (int, optional): threshold. Defaults to 90.
-
+    """
+    Performs fuzzy matching to identify and return duplicate rows based on the 'Name' column in a DataFrame.  
+    Rows with a similarity score above the specified threshold are considered duplicates.
+    Parameters:
+        df (pd.DataFrame): The dataset in which to perform fuzzy deduplication.
+        threshold (int, optional): The similarity threshold (0-100) for matching rows. Defaults to 90.
     Returns:
-        _type_: _description_
+        list: A list of tuples, each containing the indices of duplicate rows.
     """
     duplicates = []
     for i in range(len(df)):

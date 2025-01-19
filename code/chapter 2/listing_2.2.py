@@ -9,7 +9,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -22,7 +21,6 @@ def initialize():
 
 def analyzeBySex(_df):
     """Analyze the Titnaic dataset by sex
-
     Args:
         _df (dataframe): titanic dataset
     """

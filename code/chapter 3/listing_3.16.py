@@ -11,7 +11,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -23,12 +22,13 @@ def initialize():
     return df
 
 def compare_dist(distrib1, distrib2, nbbins = 40):
-    """ This funtion is an utility to display the difference between two ages distribution
-
-    Args:
-        distrib1 (dataframe): First distribution 
-        distrib2 (dataframe): Second distribution to compare with
-        nbbins (int, optional): Nb bins for histogram. Defaults to 40.
+    """
+    Compares and visualizes the differences between two age distributions.  
+    Creates a side-by-side bar chart to highlight discrepancies in frequency across age bins.
+    Parameters:
+        distrib1 (pd.Series or np.ndarray): The first age distribution to compare.
+        distrib2 (pd.Series or np.ndarray): The second age distribution to compare with.
+        nbbins (int, optional): Number of bins for the histogram. Defaults to 40.
     """
     # Set up the plot
     plt.figure(figsize=(15, 6))
@@ -56,6 +56,14 @@ def compare_dist(distrib1, distrib2, nbbins = 40):
     plt.show()
 
 def impute_outliers(data):
+    """
+    Imputes outliers in a dataset using the Interquartile Range (IQR) method.  
+    Outliers, defined as data points outside 1.5 times the IQR below Q1 or above Q3, are replaced with the median value of the dataset.
+    Parameters:
+        data (pd.Series): The dataset to impute outliers in.
+    Returns:
+        pd.Series: The dataset with outliers imputed by the median value.
+    """
     Q1 = data.quantile(0.25)
     Q3 = data.quantile(0.75)
     IQR = Q3 - Q1 #A
@@ -65,7 +73,6 @@ def impute_outliers(data):
     data[data < lower_bound] = replacement_value
     data[data > upper_bound] = replacement_value
     return data
-
 
 if __name__ == "__main__":
     df = initialize()

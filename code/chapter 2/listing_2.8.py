@@ -10,7 +10,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: titanic dataset
     """
@@ -22,13 +21,18 @@ def initialize():
     return df
 
 def parse_name(name):
-    """ parsing the names column
-
-    Args:
-        name (string): name
-
+    """ This function parses a name string into its components, extracting the 
+        individual names, any title (e.g., Mr., Dr.), and any prefix 
+        (e.g., van, de). The function is designed to handle names with punctuation 
+        and parentheses gracefully, removing irrelevant elements before processing.
+    Parameters:
+        name (str): The input name string to parse. It may include titles, prefixes, 
+                    parentheses, and punctuation.
     Returns:
-        parsed name: _description_
+        dict: A dictionary containing the parsed components:
+            - 'names' (list): A list of individual name components (excluding titles and prefixes).
+            - 'prefix' (str or None): The identified prefix (if any).
+            - 'title' (str or None): The identified title (if any).
     """
     name_without_parentheses = re.sub(r'\([^)]*\)', '', name).strip() #A
     words = re.findall(r'\b\w+\b|\.|,', name_without_parentheses) #B
@@ -41,7 +45,7 @@ def parse_name(name):
                             'col', 'major', 'capt']:
             title = word
         elif word.lower() in ['van', 'de', 'der', 
-                              'du', 'di', 'la', 'le']:
+                                'du', 'di', 'la', 'le']:
             prefix = word
         elif word not in [',', '.']:
             names.append(word)
