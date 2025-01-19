@@ -6,6 +6,22 @@ import common as C
 import pandas as pd
 
 def collect_metadata(chunk):
+    """
+    Collects comprehensive metadata from a given data chunk.
+    This function extracts detailed metadata from a chunk of data, including column names, data types, counts of missing values, 
+    means, medians, modes, and summary statistics. It provides an overview of the dataset, useful for quick inspection and analysis.
+    Parameters:
+        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+    Returns:
+        dict: A dictionary containing the following metadata:
+            - 'columns': List of column names.
+            - 'data_types': Dictionary of column names and their respective data types.
+            - 'missing_counts': Dictionary with the count of missing values per column.
+            - 'column_means': Dictionary with the mean of each numeric column.
+            - 'column_medians': Dictionary with the median of each numeric column.
+            - 'column_modes': Dictionary with the mode (most frequent value) of each column.
+            - 'summary_stats': Dictionary containing summary statistics (count, mean, std, min, 25%, 50%, 75%, max) for each numeric column.
+    """
     metadata = {
         "columns": chunk.columns.tolist(),
         "data_types": chunk.dtypes.to_dict(),
@@ -21,6 +37,19 @@ def build_feature_engineering_prompt(dataset_chunk,
                                         metadata, 
                                         targetvariable, 
                                         task_type="classification"):
+    """
+    Generates a detailed prompt for feature engineering based on dataset metadata
+    This function creates a prompt designed for an advanced data scientist specializing in feature engineering. 
+    The prompt provides a structured overview of the dataset, its metadata, and task type, followed by detailed instructions for 
+    suggesting new features, encoding strategies, and feature selection techniques.
+    Parameters:
+        dataset_chunk (DataFrame): A small sample of the dataset to analyze.
+        metadata (dict): A dictionary containing metadata about the dataset, including columns, data types, missing value counts, summary statistics, and the target variable.
+        targetvariable (str): The name of the target variable in the dataset.
+        task_type (str, optional): The type of machine learning task ("classification" or "regression"). Defaults to "classification".
+    Returns:
+        str: A prompt to guide the feature engineering process, including tasks for suggesting features, encoding strategies, feature selection, and explaining the rationale behind each recommendation.
+    """
     prompt = f"""
                 You are an advanced data scientist specializing in feature engineering to improve machine learning models. 
                 The dataset you are working with is structured as follows:

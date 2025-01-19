@@ -13,6 +13,13 @@ import common as C
 # python -m spacy download en_core_web_sm
 
 def extract_named_entities(comment): 
+    """
+    Extracts named entities from a given text comment using spaCy's Named Entity Recognition (NER).
+    Parameters:
+        comment (str): The text comment to extract named entities from.
+    Returns:
+        list of tuples: A list of named entities, where each entity is represented as a tuple (entity_text, entity_label).
+    """
     doc = nlp(comment)
     entities = [(ent.text, ent.label_) for ent in doc.ents]
     return entities

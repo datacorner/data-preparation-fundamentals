@@ -5,7 +5,15 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
 def create_prompt(task, details):    
-    # Template for the prompt    
+    """
+    Generates a formatted prompt string based on the provided task and details.
+    This function combines the given task and details into a structured prompt format, which can be used to request responses from AI models or other systems.
+    Parameters:
+        task (str): A description of the task to be performed.
+        details (str): Additional details or context related to the task.
+    Returns:
+        str: A formatted prompt string combining the task and details, ready for use.
+    """
     prompt = f"Task: {task}\nDetails: {details}\nResponse:"   
     return prompt    
 

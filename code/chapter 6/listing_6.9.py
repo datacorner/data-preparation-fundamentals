@@ -11,11 +11,12 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
 def manage_datetime(df):
-    """Convert the column to a datetime object (if not already in datetime format)
-    Args:
-        df (dataframe): dataset 
+    """
+    Converts the 'datetime' column in the DataFrame to a datetime object and extracts the hour.
+    Parameters:
+        df (pandas.DataFrame): The input DataFrame containing a 'datetime' column.
     Returns:
-        dataframe: dataset with the column datetime converted
+        pandas.DataFrame: The DataFrame with 'datetime' converted and an additional 'hour' column.
     """
     df['datetime'] = pd.to_datetime(df['datetime'])
     # Extract the hour from the datetime column
@@ -24,7 +25,15 @@ def manage_datetime(df):
     return df
 
 def categorize_rentals(df):
-    # Define thresholds for categorizing rentals (these can be adjusted based on the dataset)
+    """
+    Categorizes rental amounts into low, medium, and high based on predefined thresholds.
+    Parameters:
+        df (pandas.DataFrame): The input DataFrame containing a column 'Nb of rental' with rental amounts.
+    Returns:
+        pandas.DataFrame: The DataFrame with an additional 'rental_category' column, where:
+                        0 = 'Low Rental', 1 = 'Medium Rental', 2 = 'High Rental'.
+    """
+     # Define thresholds for categorizing rentals (these can be adjusted based on the dataset)
     high_threshold = 500  # Define a value for high rentals
     low_threshold = 100  # Define a value for low rentals
 
@@ -35,6 +44,7 @@ def categorize_rentals(df):
                                 labels=[0, 1, 2])
 
     return df
+
 if __name__ == "__main__":
     df = pd.read_csv(C.DATASET_FOLDER + "bikerental/rental_train.csv", encoding='UTF8')
 

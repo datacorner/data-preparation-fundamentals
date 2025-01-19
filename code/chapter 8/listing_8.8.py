@@ -6,6 +6,22 @@ import common as C
 import pandas as pd
 
 def collect_metadata(chunk):
+    """
+    Collects comprehensive metadata from a given data chunk.
+    This function extracts detailed metadata from a chunk of data, including column names, data types, counts of missing values, 
+    means, medians, modes, and summary statistics. It provides an overview of the dataset, useful for quick inspection and analysis.
+    Parameters:
+        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+    Returns:
+        dict: A dictionary containing the following metadata:
+            - 'columns': List of column names.
+            - 'data_types': Dictionary of column names and their respective data types.
+            - 'missing_counts': Dictionary with the count of missing values per column.
+            - 'column_means': Dictionary with the mean of each numeric column.
+            - 'column_medians': Dictionary with the median of each numeric column.
+            - 'column_modes': Dictionary with the mode (most frequent value) of each column.
+            - 'summary_stats': Dictionary containing summary statistics (count, mean, std, min, 25%, 50%, 75%, max) for each numeric column.
+    """
     metadata = {
         "columns": chunk.columns.tolist(),
         "data_types": chunk.dtypes.to_dict(),
@@ -16,10 +32,10 @@ def collect_metadata(chunk):
         "summary_stats": chunk.describe(include=[float, int]).to_dict()
     }
     return metadata
+
 def build_feature_generation_prompt(dataset_sample, metadata, target=None, task_type="classification"):
     """
     Generate a prompt to guide a generative AI model in creating new features from existing data.
-
     Args:
         dataset_sample (pd.DataFrame): A small sample of the dataset (e.g., 5-10 rows).
         metadata (dict): Metadata about the dataset, including column types, missing values, etc.

@@ -8,7 +8,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: dataset read
     """

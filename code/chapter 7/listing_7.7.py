@@ -6,8 +6,18 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
-# Generate advanced time-based features for a time series
 def create_time_features(series):
+    """
+    Generates advanced time-based features for a given time series.
+    This function computes several features based on the input time series:
+    1. Rolling 7-day and 30-day moving averages.
+    2. Exponentially Weighted Moving Average (EWMA) with a span of 30 days.
+    3. Year-over-Year percentage change.
+    Parameters:
+        series (pandas.Series): A time series data to generate features from.
+    Returns:
+        pandas.DataFrame: A DataFrame containing the computed time-based features.
+    """
     return pd.DataFrame({
         # Rolling window means. calculates the 7-day and 30-day moving average of the time series data
         'Rolling_7D_Mean': series.rolling(window=7).mean(),

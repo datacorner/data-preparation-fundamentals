@@ -10,7 +10,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: dataset
     """
@@ -19,6 +18,14 @@ def initialize():
     return df_excel
 
 def categorize_rating(text):
+    """
+    Categorizes a given text into one of three sentiment categories: 'Positive', 'Negative', or 'Neutral'.  
+    The function checks for the presence of keywords to determine the sentiment.
+    Parameters:
+        text (str): The text to categorize.
+    Returns:
+        str: The sentiment category ('Positive', 'Negative', or 'Neutral').
+    """
     if 'Positive' in text:
         return 'Positive'
     elif 'Negative' in text:

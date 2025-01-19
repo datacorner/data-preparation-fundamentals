@@ -9,9 +9,9 @@ import common as C
 def handle_slowly_changing_dimension(df):
     """ SCD Type 2 implementation
     Args:
-        df (dataframe): input dataset
+        df (pandas.DataFrame): input dataset
     Returns:
-        _type_: output dataset
+        pandas.DataFrame: output dataset
     """
     # Make a copy to avoid modifying the original DataFrame
     working_df = df.copy()

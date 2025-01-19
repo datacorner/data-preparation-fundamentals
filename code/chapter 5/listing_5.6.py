@@ -13,6 +13,13 @@ import common as C
 # python -m spacy download en_core_web_sm
 
 def extract_gpe_entities(comment):
+    """
+    Extracts Geopolitical Entity (GPE) named entities from a given text comment using spaCy's Named Entity Recognition (NER).
+    Parameters:
+        comment (str): The text comment to extract GPE entities from.
+    Returns:
+        str: A comma-separated string of GPE entities found in the comment.
+    """
     doc = nlp(comment)
     gpe_entities = {ent.text for ent in doc.ents if ent.label_=="GPE"} #A
     return ", ".join(sorted(gpe_entities))  

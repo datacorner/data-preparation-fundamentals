@@ -10,7 +10,6 @@ import common as C
 
 def initialize():
     """ Read the source file (Titanic disaster) and provide a dataframe
-
     Returns:
         dataframe: dataset read
     """
@@ -43,8 +42,8 @@ if __name__ == "__main__":
     print(f"Union: {df_union.shape}")
     # Join all the results with the master dataset
     df_allreviews = pd.merge(df_csv, 
-                         df_excel, 
-                         how='inner', 
-                         left_on='RecordID', 
-                         right_on='RecordID')
+                            df_excel, 
+                            how='inner', 
+                            left_on='RecordID', 
+                            right_on='RecordID')
     print (df_allreviews.head())

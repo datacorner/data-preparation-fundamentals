@@ -9,9 +9,9 @@ import common as C
 def create_dimension_tables(df):
     """Create dimension tables
     Args:
-        df (dataframe): dataset
+        df (pandas.DataFrame): dataset
     Returns:
-        dataframe[]: list of dimension tables as dataframe
+        pandas.DataFrame[]: list of dimension tables as dataframe
     """
     customer_dim = df[['Customer Name', 
                         'Segment', 'State']].drop_duplicates()
@@ -33,9 +33,9 @@ def create_dimension_tables(df):
 def create_fact_table(df, customer_dim, product_dim, date_dim):
     """Create Fact table
     Args:
-        df (dataframe): dataset
+        df (pandas.DataFrame): dataset
     Returns:
-        dataframe: Fact table
+        pandas.DataFrame: Fact table
     """
     # Merge Customer Dimension Key
     fact_table = df.merge(customer_dim, on=['Customer Name', 'Segment', 'State'], how='left')

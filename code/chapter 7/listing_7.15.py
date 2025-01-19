@@ -7,8 +7,19 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
-# Define funnel stage classification function
 def classify_funnel_stage(orders):
+    """
+    Classifies a customer into different funnel stages based on their order count.
+    This function categorizes customers based on the number of orders they have made:
+    1. 'One-Time Buyer' for customers with 1 order.
+    2. 'Repeat Buyer' for customers with 2 orders.
+    3. 'Frequent Buyer' for customers with 3 to 4 orders.
+    4. 'Loyal Customer' for customers with more than 4 orders.
+    Parameters:
+        orders (int): The number of orders a customer has placed.
+    Returns:
+        str: The customer classification as a funnel stage ('One-Time Buyer', 'Repeat Buyer', 'Frequent Buyer', or 'Loyal Customer').
+    """
     if orders == 1:
         return 'One-Time Buyer'
     elif orders == 2:

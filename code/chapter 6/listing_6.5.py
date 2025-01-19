@@ -8,6 +8,14 @@ np.random.seed(1)
 NBROWS = 5000
 
 def plotGraph(pdf, pscaled_df):
+    """
+    Plots kernel density estimation (KDE) curves for the features in the original and scaled DataFrames.
+    Parameters:
+        pdf (pandas.DataFrame): The original DataFrame with features to plot.
+        pscaled_df (pandas.DataFrame): The scaled DataFrame to compare against the original.
+    Returns:
+        None: This function displays a plot comparing the feature distributions before and after scaling.
+    """
     fig, (a, b) = plt.subplots(ncols=2, figsize=(16, 5))
     a.set_title("Before scaling")
     b.set_title("After Scaling")

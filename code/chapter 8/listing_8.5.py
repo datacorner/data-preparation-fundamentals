@@ -6,6 +6,20 @@ import common as C
 import pandas as pd
 
 def collect_metadata(chunk):
+    """
+    Collects basic metadata from a given data chunk.
+    This function extracts key statistics and metadata from a chunk of data, including column names, counts of missing values, means, medians, 
+    and modes of the columns. It is useful for summarizing and understanding the basic characteristics of a dataset.
+    Parameters:
+        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+    Returns:
+        dict: A dictionary containing the following metadata:
+            - 'columns': List of column names.
+            - 'missing_counts': Dictionary with the count of missing values per column.
+            - 'column_means': Dictionary with the mean of each column.
+            - 'column_medians': Dictionary with the median of each column.
+            - 'column_modes': Dictionary with the mode (most frequent value) of each column.
+    """
     metadata = {
         "columns": chunk.columns.tolist(),
         "missing_counts": chunk.isna().sum().to_dict(),
@@ -16,6 +30,14 @@ def collect_metadata(chunk):
     return metadata
 
 def build_normalization_prompt(chunk, metadata):
+    """
+    Generates a formatted prompt string based on the provided task and details.
+    Parameters:
+        chunk (str): chunk data
+        metadata (list): Additional details (metadata) for building out the prompt
+    Returns:
+        str: A formatted prompt string combining the task and details, ready for use.
+    """
     prompt = f"""
                 You are a data expert helping to clean a dataset by performing noise reduction and normalization. The dataset is structured as follows:
                 Columns: {metadata['columns']}

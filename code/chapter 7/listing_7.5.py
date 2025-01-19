@@ -8,6 +8,18 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
 def plot_datapoints(datastore, datastore_filled):
+    """
+    Plots and compares the original and filled data points for 'Sales' during January 2016.
+        This function creates three subplots:
+        1. The original sales data before filling missing time points.
+        2. A scatter plot showing the added data points (after forward filling).
+        3. The sales data after filling missing time points.
+    Parameters:
+        datastore (pandas.DataFrame): The original DataFrame with missing 'Sales' values.
+        datastore_filled (pandas.DataFrame): The DataFrame with forward-filled 'Sales' values.
+    Returns:
+        None: Displays the plot and prints the number of added points after filling missing values.
+    """
     # Filter the data for January 2016
     datastore = datastore[(datastore.index.year == 2016) & (datastore.index.month == 1)]
     datastore_filled = datastore_filled[(datastore_filled.index.year == 2016) & (datastore_filled.index.month == 1)]

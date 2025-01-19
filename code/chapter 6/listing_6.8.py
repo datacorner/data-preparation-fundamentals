@@ -10,11 +10,12 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
 def manage_datetime(df):
-    """Convert the column to a datetime object (if not already in datetime format)
-    Args:
-        df (dataframe): dataset 
+    """
+    Converts the 'datetime' column in the DataFrame to a datetime object and extracts the hour.
+    Parameters:
+        df (pandas.DataFrame): The input DataFrame containing a 'datetime' column.
     Returns:
-        dataframe: dataset with the column datetime converted
+        pandas.DataFrame: The DataFrame with 'datetime' converted and an additional 'hour' column.
     """
     df['datetime'] = pd.to_datetime(df['datetime'])
     # Extract the hour from the datetime column

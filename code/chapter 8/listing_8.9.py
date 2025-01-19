@@ -6,6 +6,22 @@ import common as C
 import pandas as pd
 
 def collect_metadata(chunk):
+    """
+    Collects comprehensive metadata from a given data chunk.
+    This function extracts detailed metadata from a chunk of data, including column names, data types, counts of missing values, 
+    means, medians, modes, and summary statistics. It provides an overview of the dataset, useful for quick inspection and analysis.
+    Parameters:
+        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+    Returns:
+        dict: A dictionary containing the following metadata:
+            - 'columns': List of column names.
+            - 'data_types': Dictionary of column names and their respective data types.
+            - 'missing_counts': Dictionary with the count of missing values per column.
+            - 'column_means': Dictionary with the mean of each numeric column.
+            - 'column_medians': Dictionary with the median of each numeric column.
+            - 'column_modes': Dictionary with the mode (most frequent value) of each column.
+            - 'summary_stats': Dictionary containing summary statistics (count, mean, std, min, 25%, 50%, 75%, max) for each numeric column.
+    """
     metadata = {
         "columns": chunk.columns.tolist(),
         "data_types": chunk.dtypes.to_dict(),
@@ -18,6 +34,19 @@ def collect_metadata(chunk):
     return metadata
 
 def generate_normalization_prompt(dataset_overview, target_columns=None, scaling_techniques=None):
+    """
+    Generates a prompt for normalizing and scaling a dataset for machine learning.
+    This function creates a detailed prompt for an expert in data preprocessing and feature engineering, focusing on normalizing 
+    and scaling numerical data. It provides context about the dataset and allows for customization of the columns to scale and the 
+    specific scaling techniques to apply. The prompt outlines the steps required for analyzing the dataset, recommending scaling methods, 
+    and addressing any preprocessing needs such as outliers or missing values.
+    Parameters:
+        dataset_overview (str): A brief description of the dataset, including its purpose and relevant features.
+        target_columns (list, optional): A list of specific columns to focus on for normalization and scaling. Defaults to None, in which case all numeric columns are analyzed.
+        scaling_techniques (list, optional): A list of preferred scaling techniques to suggest (e.g., min-max scaling, z-score normalization). Defaults to None, in which case the function recommends suitable methods based on the dataset's characteristics.
+    Returns:
+        str: A prompt to guide the normalization and scaling process, including recommendations for handling missing values, outliers, and the appropriate techniques to use for each column.
+    """
     prompt = (
         "You are an expert in data preprocessing and feature engineering. I need your help in normalizing and scaling "
         "data from a dataset used for machine learning.\n\n"
