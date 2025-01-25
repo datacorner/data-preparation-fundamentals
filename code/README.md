@@ -1,6 +1,13 @@
 # README
-In this folder you'll find all the book's listings.  
-**Note: Each python file follows the book naming convention (meaning listing_3.4.py refers to the listing 3.4 you can find in the chapter 3).**
+In the **./code** folder you'll find all the listings from the book. This README file explains how to set up the prerequisites.
+
+**Note:** Each python file follows the book naming convention (Example: listing_3.4.py refers to the listing 3.4 you can find in the chapter 3).
+
+**Table of contents**
+- [Creating the Python environment](#Creating-the-Python-environment)  
+- [Specific libraries for chapter 5](#Specific-libraries-for-chapter-5)
+- [Leveraging Google AI](#Leveraging-Google-AI)
+- [Installing Alteryx](#Installing-Alteryx)
 
 # Creating the Python environment
 To leverage the resources provided in this repository it's first recommended to create a python virtual environment. 
@@ -30,7 +37,7 @@ There are several ways to create and manage virtual environments in Python:
 
 ### Prerequisites
 
-- Ensure Python 3.3 or later is installed on your system.
+Ensure [Python 3.12 or later](https://www.python.org/downloads/) is installed on your system.
 
 ### Steps
 
