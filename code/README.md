@@ -72,7 +72,7 @@ python -m spacy download en_core_web_sm
 We leverage Tesseract on the listing 5.10 and 5.11, but this library must also be installed beforehand.
 
 * Windows
-  * Download: Download the installer from the official Tesseract * [OCR website](https://github.com/UB-Mannheim/tesseract/wiki)
+  * Download: Download the installer from the official [Tesseract website](https://github.com/UB-Mannheim/tesseract/wiki)
   * Installation:
       * Run the installer.
       * Choose the installation directory (e.g., C:\Program Files\Tesseract-OCR).
