@@ -27,7 +27,7 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 * [Dataset used in the the book](./data/vgames/)
 	
 ### Chapter 5 - Reveiling informations
-**Warning:** In this chapter several specific Python and system libraries need to be installed beforehand. Please follow the procedure [here](./code/README.md)
+**Warning:** In this chapter several specific Python and system libraries need to be installed beforehand. Please follow the procedure [here](./code/README.md#Specific-libraries-for-chapter-5)
 * **Top restaurants in LA (2023)**
 	* [Original dataset and description](https://www.kaggle.com/datasets/lorentzyeung/top-240-recommended-restaurants-in-la-2023)
 	* [Chapter python code](./code/chapter%205/)
@@ -53,13 +53,13 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 * [Dataset used in the the book](./data/superstore/)
 
 ### Chapter 8 - Generative AI for data preparation
-This chapter utilizes Google AI's capabilities (specifically, Gemini) because it offers a free-to-use LLM (Large Language Model). To ensure a smooth setup, follow the environment preparation instructions provided [here](./code/README.md).
+**Note:** This chapter utilizes Google AI's capabilities (specifically, Gemini) because it offers a free-to-use LLM (Large Language Model). To ensure a smooth setup, follow the environment preparation instructions provided [here](./code/README.md#Leveraging-Google-AI).
 * [Chapter python code](./code/chapter%208/)
 
 ### Chapter 9 - Visual data preparation with Alteryx
-The Alteryx exports (yxmd files)can be found [here](./code/chapter%209/), you can just copy the file on your desktop and open them by using the Alteryx client.
+**Note:** In this chapter, we’ll use Alteryx *v2024.1.1.93 Patch:3* to demonstrate how to leverage a visual data preparation solution. To get started, you’ll need to install the Alteryx client. The installation procedure is described [here](./code/README.md#Installing-Alteryx).
 
-*Note: the exports have been done with Alteryx v2024.1.1.93  Patch: 3*
+The Alteryx exports (yxmd files) can be found [here](./code/chapter%209/), you can just copy the file on your desktop and open them by using the Alteryx client.
 
 ### Chapter 10 - Data preparation at scale
 Available soon
