@@ -7,10 +7,14 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 
-# BE CAREFUL !
-# If the error "OSError: [E050] Can't find model 'en_core_web_sm'. It doesn't seem to be a Python package or a valid path to a data directory." happens ...
-# That's because the en_core_web_sm model is not installed on your system. To resolve this, follow these steps and install it with this command:
-# python -m spacy download en_core_web_sm
+""" WARNING !
+If the error `OSError: [E050] Can't find model 'en_core_web_sm' It doesn't seem to be a Python package or a valid path to a data directory.`
+is raised. That's because the en_core_web_sm model is not installed on your system. 
+To resolve this, install it by running this command:
+
+$ python -m spacy download en_core_web_sm
+
+"""
 
 def extract_gpe_entities(comment):
     """

@@ -1,10 +1,10 @@
 # Data preparation handbook (code and resources)
 [![](img/Cover-book-MEAP.jpg)](https://mng.bz/1XaR)
 
-The [book is currently available in the Manning Early Access Program (MEAP)](https://mng.bz/1XaR)), please fille free to participate in this awesome opportunity and give me your feedbacks.
+The [book is currently available in the Manning Early Access Program (MEAP)](https://mng.bz/1XaR)), Feel free to take advantage of this opportunity and share your valuable feedback!
 
-## How to
-[How to leverage the resources / Install and configure your environment](/code/README.md)
+## Requirements
+[Install and configure your environment](/code/README.md)
 
 ## Resources available per chapter
 *Note: Some datasets have been modified from their original versions for compatibility with the provided code examples. To ensure the code works as intended, it is recommended to use the modified datasets (as they are referenced already). However, for reference and additional context, links to the original datasets are also included.*
@@ -27,6 +27,7 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 * [Dataset used in the the book](./data/vgames/)
 	
 ### Chapter 5 - Reveiling informations
+**Warning:** In this chapter several specific Python and system libraries need to be installed beforehand. Please follow the procedure [here](./code/README.md)
 * **Top restaurants in LA (2023)**
 	* [Original dataset and description](https://www.kaggle.com/datasets/lorentzyeung/top-240-recommended-restaurants-in-la-2023)
 	* [Chapter python code](./code/chapter%205/)
@@ -52,6 +53,7 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 * [Dataset used in the the book](./data/superstore/)
 
 ### Chapter 8 - Generative AI for data preparation
+This chapter utilizes Google AI's capabilities (specifically, Gemini) because it offers a free-to-use LLM (Large Language Model). To ensure a smooth setup, follow the environment preparation instructions provided [here](./code/README.md).
 * [Chapter python code](./code/chapter%208/)
 
 ### Chapter 9 - Visual data preparation with Alteryx

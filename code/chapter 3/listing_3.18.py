@@ -1,7 +1,7 @@
 import pandas as pd
 
 if __name__ == "__main__":
-    data = { #A
+    data = {
         'Name': [' John ', 'DOE', 'Alice', ' bob '],
         'Date_of_Birth': ['12/05/1990', '12-05-1990', 
                         '1990.05.12', '1990/12/05'],

@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # BE CAREFUL !
-# This code worked on january 2025 but not not anymore if the website changed the structure of the HTML page requested.
+# This code currently (Jan 2025) functions as expected, but its reliability may be compromised in the future if the website modifies its HTML structure.
 
 if __name__ == "__main__":
     url = "https://store.steampowered.com/app/2358720/Black_Myth_Wukong/"
