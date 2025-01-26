@@ -50,11 +50,11 @@ Ensure [Python 3.12 or later](https://www.python.org/downloads/) is installed on
     ```
     This will create a directory called env containing the virtual environment files.
 3. **Activate the Virtual Environment**
-    * On `Windows`:
+    * On `Windows`
     ```bash
     .\env\Scripts\activate
      ```
-    * On `macOS/Linux`:
+    * On `macOS/Linux`
     ```bash
     source env/bin/activate
      ```
@@ -113,7 +113,7 @@ tesseract --version
 In **chapter 8** we'll use Google AI in the code to illustrate the book's topics.
 These are the steps to get ready:
 * Obtaining a Google Key
-* Creating the GEMINI_KEY environment variable
+* Creating the `GEMINI_KEY` environment variable
 ## Obtaining a Google AI Studio API Key
 1. Access to [Google AI Studio](https://aistudio.google.com/)
 2. Sign in by using your Google Account
@@ -134,15 +134,15 @@ These are the steps to get ready:
 
 ## Creating the GEMINI_KEY local environment variable
 1. Access to your System Properties:
-    * Windows: Search for "Environment Variables" in the Start Menu.
+    * `Windows` Search for "Environment Variables" in the Start Menu.
         Right-click "This PC" or "My Computer" and select "Properties". Go to "Advanced system settings" and click "Environment Variables".
-    * macOS/Linux: Open your terminal.
+    * `macOS/Linux` Open your terminal.
 2. Create a New Variable:
-    * Windows: In the "System variables" section, click "New".
+    * `Windows` In the "System variables" section, click "New".
         * Enter the Variable name: `GEMINI_KEY`.
         * Enter the Variable value (your actual API key you've created beforehand).
         * Click "OK" to save.
-    * macOS/Linux:
+    * `macOS/Linux`
         Use the following command in the terminal:
          ```bash
          export GEMINI_KEY="your_actual_api_key" 
