@@ -7,7 +7,7 @@ The [book is currently available in the Manning Early Access Program (MEAP)](htt
 [Install and configure your environment](/code/README.md)
 
 ## Resources available per chapter
-*Note: Some datasets have been modified from their original versions for compatibility with the provided code examples. To ensure the code works as intended, it is recommended to use the modified datasets (as they are referenced already). However, for reference and additional context, links to the original datasets are also included.*
+Some datasets have been modified from their original versions for compatibility with the provided code examples. To ensure the code works as intended, it is recommended to use the modified datasets (as they are referenced already). However, for reference and additional context, links to the original datasets are also included.
 ### Chapter 1 - Introduction to data preparation
 **N.A.**
 
