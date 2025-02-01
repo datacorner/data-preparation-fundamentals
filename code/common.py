@@ -5,6 +5,19 @@ import time
 DATASET_FOLDER = "../data/"
 PROFILE_FOLDER = "../profiles/"
 
+def clean_gemini_response(response):
+    """ Unfortunaltely Gemini regularly prefixes his responses by adding prefix and suffix like ```json
+    This function just removes them to enable a simple import afterwards. 
+        That still happens despite the instruction: "Return the updated data for the dataset provided in a JSON format (each row as a node) without any prefix or decoration. 
+        I should be able to leverage the response directly by using a programming language (like python), by just importing the result as is.
+        Please only provide the result of task 3" with Gemini but does not happen with other LLMs.
+    Args:
+        response (string): JSON returned by Gemini
+    Returns:
+        string: Clean JSON
+    """
+    return response.replace("```json", "").replace("```JSON", "").replace("```", "")
+
 def get_gemini_response(prompt, max_retries=3, delay=1):
     """
     Get a response from Gemini AI for a given prompt

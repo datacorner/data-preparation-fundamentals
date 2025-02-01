@@ -5,13 +5,13 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import common as C
 import pandas as pd
 
-def collect_metadata(chunk):
+def collect_metadata(data):
     """
-    Collects comprehensive metadata from a given data chunk.
-    This function extracts detailed metadata from a chunk of data, including column names, data types, counts of missing values, 
+    Collects comprehensive metadata from a given dataset.
+    This function extracts detailed metadata from a dataset, including column names, data types, counts of missing values, 
     means, medians, modes, and summary statistics. It provides an overview of the dataset, useful for quick inspection and analysis.
     Parameters:
-        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+        data (DataFrame): A pandas DataFrame dataset to collect metadata from.
     Returns:
         dict: A dictionary containing the following metadata:
             - 'columns': List of column names.
@@ -23,13 +23,13 @@ def collect_metadata(chunk):
             - 'summary_stats': Dictionary containing summary statistics (count, mean, std, min, 25%, 50%, 75%, max) for each numeric column.
     """
     metadata = {
-        "columns": chunk.columns.tolist(),
-        "data_types": chunk.dtypes.to_dict(),
-        "missing_counts": chunk.isna().sum().to_dict(),
-        "column_means": chunk.mean(numeric_only=True).to_dict(),
-        "column_medians": chunk.median(numeric_only=True).to_dict(),
-        "column_modes": chunk.mode(dropna=True).iloc[0].to_dict(),
-        "summary_stats": chunk.describe(include=[float, int]).to_dict()
+        "columns": data.columns.tolist(),
+        "data_types": data.dtypes.to_dict(),
+        "missing_counts": data.isna().sum().to_dict(),
+        "column_means": data.mean(numeric_only=True).to_dict(),
+        "column_medians": data.median(numeric_only=True).to_dict(),
+        "column_modes": data.mode(dropna=True).iloc[0].to_dict(),
+        "summary_stats": data.describe(include=[float, int]).to_dict()
     }
     return metadata
 

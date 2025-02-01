@@ -2,16 +2,16 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
+from common import DATASET_FOLDER
 import pandas as pd
 
-def collect_metadata(chunk):
+def collect_metadata(data):
     """
-    Collects basic metadata from a given data chunk.
-    This function extracts key statistics and metadata from a chunk of data, including column names, counts of missing values, means, medians, 
+    Collects basic metadata from a given dataset.
+    This function extracts key statistics and metadata from a dataset, including column names, counts of missing values, means, medians, 
     and modes of the columns. It is useful for summarizing and understanding the basic characteristics of a dataset.
     Parameters:
-        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+        data (DataFrame): A pandas DataFrame chunk to collect metadata from.
     Returns:
         dict: A dictionary containing the following metadata:
             - 'columns': List of column names.
@@ -21,16 +21,16 @@ def collect_metadata(chunk):
             - 'column_modes': Dictionary with the mode (most frequent value) of each column.
     """
     metadata = {
-        "columns": chunk.columns.tolist(),
-        "missing_counts": chunk.isna().sum().to_dict(),
-        "column_means": chunk.mean(numeric_only=True).to_dict(),
-        "column_medians": chunk.median(numeric_only=True).to_dict(),
-        "column_modes": chunk.mode(dropna=True).iloc[0].to_dict()
+        "columns": data.columns.tolist(),
+        "missing_counts": data.isna().sum().to_dict(),
+        "column_means": data.mean(numeric_only=True).to_dict(),
+        "column_medians": data.median(numeric_only=True).to_dict(),
+        "column_modes": data.mode(dropna=True).iloc[0].to_dict()
     }
     return metadata
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
+    df = pd.read_csv(DATASET_FOLDER + "titanic/train.csv")
     # Chunks the dataset
     chunk_size = 100
     chunks = [df.iloc[i:i + chunk_size] for i in range(0, len(df), chunk_size)]

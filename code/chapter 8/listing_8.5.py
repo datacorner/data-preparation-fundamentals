@@ -2,16 +2,17 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
+from common import get_gemini_response, clean_gemini_response, DATASET_FOLDER
 import pandas as pd
+import json
 
-def collect_metadata(chunk):
+def collect_metadata(data):
     """
-    Collects basic metadata from a given data chunk.
-    This function extracts key statistics and metadata from a chunk of data, including column names, counts of missing values, means, medians, 
+    Collects basic metadata from a given dataset.
+    This function extracts key statistics and metadata from a dataset, including column names, counts of missing values, means, medians, 
     and modes of the columns. It is useful for summarizing and understanding the basic characteristics of a dataset.
     Parameters:
-        chunk (DataFrame): A pandas DataFrame chunk to collect metadata from.
+        data (DataFrame): A pandas DataFrame chunk to collect metadata from.
     Returns:
         dict: A dictionary containing the following metadata:
             - 'columns': List of column names.
@@ -21,11 +22,11 @@ def collect_metadata(chunk):
             - 'column_modes': Dictionary with the mode (most frequent value) of each column.
     """
     metadata = {
-        "columns": chunk.columns.tolist(),
-        "missing_counts": chunk.isna().sum().to_dict(),
-        "column_means": chunk.mean(numeric_only=True).to_dict(),
-        "column_medians": chunk.median(numeric_only=True).to_dict(),
-        "column_modes": chunk.mode(dropna=True).iloc[0].to_dict()
+        "columns": data.columns.tolist(),
+        "missing_counts": data.isna().sum().to_dict(),
+        "column_means": data.mean(numeric_only=True).to_dict(),
+        "column_medians": data.median(numeric_only=True).to_dict(),
+        "column_modes": data.mode(dropna=True).iloc[0].to_dict()
     }
     return metadata
 
@@ -47,8 +48,8 @@ def build_normalization_prompt(chunk, metadata):
                 - Column medians: {metadata['column_medians']}
                 - Column modes: {metadata['column_modes']}
 
-                Here is a sample of the data (including some noisy values or outliers) for analysis:
-                {chunk.head(5).to_string(index=False)}
+                Here is the dataset (including some noisy values or outliers) for analysis:
+                {chunk.to_string(index=False)}
 
                 ### Your task:
                 1. **Noise Reduction**:
@@ -64,18 +65,22 @@ def build_normalization_prompt(chunk, metadata):
                     - **Standardization (Z-Score Normalization)**: Adjust the dataset to have a mean of 0 and a standard deviation of 1.
                     - **Robust Scaling**: Normalize using median and IQR to handle outliers.
 
-                Provide the updated values after applying these techniques.
+                3. Return the updated data for the dataset provided in a JSON format (each row as a node) without any prefix or decoration. 
+                I should be able to leverage the response directly by using a programming language (like python), by just importing the result as is.
+                Please only provide the result of task 3
                 """
     return prompt
+
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # Chunks the dataset
-    chunk_size = 100
-    chunks = [df.iloc[i:i + chunk_size] for i in range(0, len(df), chunk_size)]
-    # Get metadata
-    metadata = collect_metadata(chunks[0])
-    prompt = build_normalization_prompt(chunks[0], metadata)
-        
-    response = C.get_gemini_response(prompt)
+    df = pd.read_csv(DATASET_FOLDER + "titanic/train.csv")
+    # Only get the first 10 rows
+    chunk0 = df.head(10)
+    # Get metadata from the whole dataset
+    metadata = collect_metadata(df)
+    # Build the prompt
+    prompt = build_normalization_prompt(chunk0, metadata)
+    # Send the prompt to the LLM and gets the response back
+    response = clean_gemini_response(get_gemini_response(prompt))
+    new_df = pd.DataFrame(json.loads(response))
     print(f"Prompt {prompt}")
     print(f"Response for Chunk {0}:\n{response}\n")
