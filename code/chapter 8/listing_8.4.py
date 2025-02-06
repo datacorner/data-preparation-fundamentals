@@ -5,7 +5,6 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import get_gemini_response, clean_gemini_response, DATASET_FOLDER
 
 import pandas as pd
-import json
 
 def collect_metadata(data):
     """
@@ -75,10 +74,9 @@ if __name__ == "__main__":
     # Send the prompt
     print(f"Prompt {prompt}")
     response = clean_gemini_response(get_gemini_response(prompt))
-    response_json = json.loads(response)
     
     # Let's focus on passenger 6 and his age before updating (NaN)
     print(f"BEFORE -> Passenger 6 Age (Moran, Mr. James): {chunks[0][chunks[0]["PassengerId"] == 6]["Age"]}")
     # Now let's see how the passenger 6 age has been updated
-    new_df = pd.DataFrame(response_json)
+    new_df = pd.DataFrame(response)
     print(f"AFTER  -> Passenger 6 Age (Moran, Mr. James): {new_df[new_df["PassengerId"] == 6]["Age"]}")

@@ -1,6 +1,7 @@
 import os
 import google.generativeai as genai
 import time
+import json
 
 DATASET_FOLDER = "../data/"
 PROFILE_FOLDER = "../profiles/"
@@ -16,7 +17,13 @@ def clean_gemini_response(response):
     Returns:
         string: Clean JSON
     """
-    return response.replace("```json", "").replace("```JSON", "").replace("```", "")
+    try:
+        return json.loads (response
+                            .replace("```json", "")
+                            .replace("```JSON", "")
+                            .replace("```", ""))
+    except:
+        return
 
 def get_gemini_response(prompt, max_retries=3, delay=1):
     """
@@ -34,14 +41,13 @@ def get_gemini_response(prompt, max_retries=3, delay=1):
     """
 
     # Get the Gemini Key
-    try:
-        GoogleGeminiKey = os.environ['GEMINI_KEY']
-    except:
+    GoogleGeminiKey = os.getenv('GEMINI_KEY', "")
+    if (GoogleGeminiKey == ""):
         raise Exception(f"Google Gemini Key does not exist, please get a key (https://aistudio.google.com/prompts/new_chat) and set the env variable GEMINI_KEY accordingly")
     # Configure the API
     genai.configure(api_key=GoogleGeminiKey)
     # Initialize the model
-    model = genai.GenerativeModel("gemini-pro") # or gemini-1.5-flash-002 or gemini-1.5-flash-8b
+    model = genai.GenerativeModel("gemini-1.5-flash-002") # or gemini-1.5-flash-002 or gemini-1.5-flash-8b
     
     # Retry logic
     for attempt in range(max_retries):

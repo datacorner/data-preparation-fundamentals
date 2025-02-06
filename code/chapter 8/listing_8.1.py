@@ -1,6 +1,7 @@
 # Import common constants and functions
 import sys
 import os
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from common import get_gemini_response
 

@@ -1,81 +1,84 @@
-# Import common constants and functions
+import pandas as pd
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.agents import Tool, initialize_agent
+
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-import pandas as pd
+from common import get_gemini_response, clean_gemini_response, DATASET_FOLDER
 
-def collect_metadata(data):
-    """
-    Collects basic metadata from a given dataset.
-    This function extracts key statistics and metadata from a dataset, including column names, counts of missing values, means, medians, 
-    and modes of the columns. It is useful for summarizing and understanding the basic characteristics of a dataset.
-    Parameters:
-        data (DataFrame): A pandas DataFrame chunk to collect metadata from.
-    Returns:
-        dict: A dictionary containing the following metadata:
-            - 'columns': List of column names.
-            - 'missing_counts': Dictionary with the count of missing values per column.
-            - 'column_means': Dictionary with the mean of each column.
-            - 'column_medians': Dictionary with the median of each column.
-            - 'column_modes': Dictionary with the mode (most frequent value) of each column.
-    """
-    metadata = {
-        "columns": data.columns.tolist(),
-        "missing_counts": data.isna().sum().to_dict(),
-        "column_means": data.mean(numeric_only=True).to_dict(),
-        "column_medians": data.median(numeric_only=True).to_dict(),
-        "column_modes": data.mode(dropna=True).iloc[0].to_dict()
-    }
-    return metadata
+# Step 1: Load Titanic Dataset
+df = pd.read_csv(DATASET_FOLDER + "titanic/train.csv")
 
-def build_anomaly_outlier_prompt(chunk, metadata):
-    """
-    Generates a formatted prompt string based on the provided task and details.
-    Parameters:
-        chunk (str): chunk data
-        metadata (list): Additional details (metadata) for building out the prompt
-    Returns:
-        str: A formatted prompt string combining the task and details, ready for use.
-    """
-    prompt = f"""
-            You are a data expert helping to clean a dataset by detecting and treating anomalies and outliers. The dataset is structured as follows:
-            Columns: {metadata['columns']}
-            Metadata about the columns:
-            - Missing value counts: {metadata['missing_counts']}
-            - Column means: {metadata['column_means']}
-            - Column medians: {metadata['column_medians']}
-            - Column modes: {metadata['column_modes']}
+# Step 2: Define Tools for Feature Engineering
 
-            Here is the dataset, including potential anomalies or outliers:
-            {chunk.head(5).to_string(index=False)}
+# Tool 1: Add a "FamilySize" feature
+def add_family_size(data: pd.DataFrame) -> pd.DataFrame:
+	data['FamilySize'] = data['SibSp'] + data['Parch'] + 1
+	return data
 
-            ### Your task:
-            1. **Anomaly Detection**:
-            - Identify any anomalies or outliers in the dataset. These may include:
-                - Extreme values (e.g., values significantly larger or smaller than the rest).
-                - Unexpected patterns in the data (e.g., missing values in key columns or unusual distributions).
-                - Use techniques like z-scores, IQR (Interquartile Range), or visual inspection of statistical distributions to detect these anomalies.
+family_size_tool = Tool(
+	name="AddFamilySize",
+	func=lambda query: add_family_size(df),
+	description="Adds a FamilySize column to the dataset by summing siblings/spouses and parents/children aboard."
+)
 
-            2. **Outlier Treatment**:
-            - For each identified outlier or anomaly:
-                - Determine if the value should be capped or transformed (e.g., winsorizing or log transformation).
-                - Decide if the anomaly should be removed or replaced with a more plausible value (e.g., using the median or mean).
-                - Ensure the final dataset is clean and consistent.
+# Tool 2: Add an "IsAlone" feature
+def add_is_alone(data: pd.DataFrame) -> pd.DataFrame:
+	if 'FamilySize' not in data.columns:
+		data = add_family_size(data)
+	data['IsAlone'] = (data['FamilySize'] == 1).astype(int)
+	return data
 
-            Please provide the cleaned and updated values after applying these treatments.
-            """
-    return prompt
+is_alone_tool = Tool(
+	name="AddIsAlone",
+	func=lambda query: add_is_alone(df),
+	description="Adds an IsAlone column indicating if a passenger was traveling alone."
+)
 
-if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # Chunks the dataset
-    chunk_size = 100
-    chunks = [df.iloc[i:i + chunk_size] for i in range(0, len(df), chunk_size)]
-    # Get metadata
-    metadata = collect_metadata(chunks[0])
-    prompt = build_anomaly_outlier_prompt(chunks[0], metadata)
-        
-    response = C.get_gemini_response(prompt)
-    print(f"Prompt {prompt}")
-    print(f"Response for Chunk {0}:\n{response}\n")
+# Tool 3: Add "FarePerPerson" feature
+def add_fare_per_person(data: pd.DataFrame) -> pd.DataFrame:
+	if 'FamilySize' not in data.columns:
+		data = add_family_size(data)
+	data['FarePerPerson'] = data['Fare'] / data['FamilySize']
+	return data
+
+fare_per_person_tool = Tool(
+	name="AddFarePerPerson",
+	func=lambda query: add_fare_per_person(df),
+	description="Adds a FarePerPerson column by dividing the fare by FamilySize."
+)
+
+# Step 3: Initialize Google Gemini LLM
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-002", 
+                            temperature=0.7,
+                            api_key=os.getenv('GEMINI_KEY', ""))
+
+# Step 4: Initialize LangChain Agent with Tools
+tools = [family_size_tool, is_alone_tool, fare_per_person_tool]
+
+agent_chain = initialize_agent(
+	tools=tools,
+	llm=llm,
+	agent="zero-shot-react-description",
+	verbose=True
+)
+
+# Step 5: Execute Feature Engineering Tasks Using the Agent
+print("Original DataFrame:")
+print(df.head())
+
+# Add FamilySize feature
+response_family_size = agent_chain.run("Add a FamilySize column to the Titanic dataset.")
+print("\nDataFrame with FamilySize:")
+print(df.head())
+
+# Add IsAlone feature
+response_is_alone = agent_chain.run("Add an IsAlone column to the Titanic dataset.")
+print("\nDataFrame with IsAlone:")
+print(df.head())
+
+# Add FarePerPerson feature
+response_fare_per_person = agent_chain.run("Add a FarePerPerson column to the Titanic dataset.")
+print("\nDataFrame with FarePerPerson:")
+print(df.head())
