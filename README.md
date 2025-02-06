@@ -54,7 +54,9 @@ Some datasets have been modified from their original versions for compatibility 
 
 ### Chapter 8 - Generative AI for data preparation
 **Note:** This chapter utilizes Google AI's capabilities (specifically, Gemini) because it offers a free-to-use LLM (Large Language Model). To ensure a smooth setup, follow the environment preparation instructions provided [here](./code/README.md#Leveraging-Google-AI).
+* [Original Titanic dataset and description](https://www.kaggle.com/competitions/titanic)
 * [Chapter python code](./code/chapter%208/)
+* [Dataset used in the the book](./data/titanic/)
 
 ### Chapter 9 - Visual data preparation with Alteryx
 **Note:** In this chapter, we’ll use Alteryx *v2024.1.1.93 Patch:3* to demonstrate how to leverage a visual data preparation solution. To get started, you’ll need to install the Alteryx client. The installation procedure is described [here](./code/README.md#Installing-Alteryx).
