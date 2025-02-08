@@ -1,10 +1,3 @@
-# Import common constants and functions
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from common import get_gemini_response
-
 def create_prompt(task, details):    
     """
     Generates a formatted prompt string based on the provided task and details.
@@ -23,4 +16,4 @@ if __name__ == "__main__":
     details = "Supervised learning uses labeled data to train models, while unsupervised learning deals with unlabeled data."
 
     prompt = create_prompt(task, details) 
-    print(get_gemini_response(prompt))
+    print(prompt)

@@ -1,13 +1,19 @@
-# Import common constants and functions
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from common import DATASET_FOLDER
+import google.generativeai as genai
 
-import pandas as pd
+task = "Explain the difference between supervised and unsupervised learning."
+details = "Supervised learning uses labeled data to train models, while unsupervised learning deals with unlabeled data."
+prompt = f"Task: {task}\nDetails: {details}\nResponse:"   
+print(prompt)
 
-if __name__ == "__main__":
-    df = pd.read_csv(DATASET_FOLDER + "titanic/train.csv")
-    chunk_size = 100
-    chunks = [df.iloc[i:i + chunk_size] for i in range(0, len(df), chunk_size)]
-    print (chunks)
+# Get the Gemini Key
+GoogleGeminiKey = os.getenv('GEMINI_KEY', "")
+if (GoogleGeminiKey == ""):
+    raise Exception(f"Google Gemini Key does not exist, please get a key (https://aistudio.google.com/prompts/new_chat) and set the env variable GEMINI_KEY accordingly")
+# Configure the API
+genai.configure(api_key=GoogleGeminiKey)
+# Initialize the model
+model = genai.GenerativeModel("gemini-1.5-flash-002") # or gemini-1.5-flash-002 or gemini-1.5-flash-8b
+
+response = model.generate_content(prompt)
+print(response.text)
