@@ -97,13 +97,15 @@ def plotByGroupAndRate(df, col):
     """
     fig, axs = plt.subplots(1, 2, figsize=(10, 4))
     sns.countplot(x=col, hue="Survived", 
-                data=df[df["Survived"].notnull()], ax=axs[0])
+                data=df[df["Survived"].notnull()], 
+                ax=axs[0], 
+                palette="Greys")
     axs[0].set_title("Survival by Group")
     axs[0].set_xlabel("Group")
     axs[0].set_ylabel("Count")
 
     survival_rates = df.groupby(col)['SurvivedProba'].mean()
-    sns.barplot(x=survival_rates.index, y=survival_rates.values, ax=axs[1])
+    sns.barplot(x=survival_rates.index, y=survival_rates.values, ax=axs[1], palette="Greys")
     axs[1].set_title('Survival Rate by Group')
     axs[1].set_xlabel('Title Group')
     axs[1].set_ylabel('Survival Rate')
