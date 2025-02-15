@@ -8,7 +8,7 @@ if __name__ == "__main__":
     }
     
     df = pd.DataFrame(data)
-    df_exact = df.drop_duplicates() 
+    df_exact = df.drop_duplicates() #A
 
     print("Updated Data:")
     print(df)

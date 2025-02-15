@@ -2,25 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
-
-def initialize():
-    """ Read the source file (Titanic disaster) and provide a dataframe
-    Returns:
-        dataframe: titanic dataset
-    """
-    # read the CSV file
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
-    df['SurvivedProba'] = df['Survived']
-    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
-    return df
-
 def compare_dist(distrib1, distrib2, nbbins = 40):
     """
     Compares and visualizes the differences between two age distributions.  
@@ -72,10 +53,8 @@ def remove_outliers(data):
     return data[(data >= lower_bound) & (data <= upper_bound)]
 
 if __name__ == "__main__":
-    df = initialize()
+    df = pd.read_csv("../data/titanic/train.csv")
     distrib = df['Age'].dropna()
-
-    # Removing the oldest Titanic passengers from the dataset
     dfo = remove_outliers(distrib.copy())
     compare_dist(distrib, dfo)
 

@@ -1,25 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
-
-def initialize():
-    """ Read the source file (Titanic disaster) and provide a dataframe
-    Returns:
-        dataframe: titanic dataset
-    """
-    # read the CSV file
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
-    df['SurvivedProba'] = df['Survived']
-    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
-    return df
-
 def iqr_method(data):
     """ This function identifies potential outliers in a dataset using the 
         Interquartile Range (IQR) method. It calculates the IQR, determines the 
@@ -42,7 +23,7 @@ def iqr_method(data):
     return outliers
 
 if __name__ == "__main__":
-    df = initialize()
+    df = pd.read_csv("../data/titanic/train.csv")
     distrib = df['Age'].dropna()
     
     # Create the box plot to visualize the Age repartition

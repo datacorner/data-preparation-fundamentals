@@ -25,7 +25,6 @@ if __name__ == "__main__":
         'Email': ['john@example.com', 'john@example.com', 'alice@domain.com', 'alice@domain2.com', 'bob@website.com', 'bob@website.com'],
         'Date_of_Birth': ['1990-01-01', '1990-01-01', '1985-05-12', '1985-05-12', '1970-08-22', '1970-08-22'],
     }
-    
     df = pd.DataFrame(data)
 
     # Detect duplicates based on fuzzy matching of the 'Name' column
@@ -37,5 +36,3 @@ if __name__ == "__main__":
     df_fuzzy = df.drop([dup[1] for dup in fuzzy_duplicates])
     print("\nAfter Fuzzy Matching Deduplication:")
     print(df_fuzzy)
-
-
