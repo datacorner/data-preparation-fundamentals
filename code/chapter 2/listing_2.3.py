@@ -1,24 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
-def initialize():
-    """ Read the source file (Titanic disaster) and provide a dataframe
-    Returns:
-        dataframe: titanic dataset
-    """
-    # read the CSV file
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
-    df['SurvivedProba'] = df['Survived']
-    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
-    return df
-
 def analyzeByAge(_df):
     """Analyze the Titanic dataset by Age
     Args:
@@ -36,7 +18,12 @@ def analyzeByAge(_df):
     
     # Display Passenger count per age
     plt.figure(figsize=(14, 4))
-    plt.hist(with_age["Age"], bins=20, edgecolor='black', alpha=0.7)
+    # Separate the survived ages
+    ages_survivants = with_age[with_age['SurvivedLabel'] == "alive"]['Age']
+    plt.hist(with_age['Age'], bins=20, edgecolor='black', alpha=0.7, color='skyblue', label='All passengers')
+    # Add a histogram for survived
+    plt.hist(ages_survivants, bins=20, edgecolor='black', alpha=0.5, color='red', label='Survived')
+
     plt.axvline(titanic_age_q1, color='red', linestyle='--', label='1st quartile (25%)')
     plt.axvline(titanic_age_median, color='green', linestyle='-', label='Median (50%)')
     plt.axvline(titanic_age_mean, color='orange', linestyle='-', label='Mean')
@@ -47,5 +34,9 @@ def analyzeByAge(_df):
     plt.show()
 
 if __name__ == "__main__":
-    df = initialize()
+    # read the CSV file
+    df = pd.read_csv("../data/titanic/train.csv")
+    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
+    df['SurvivedProba'] = df['Survived']
+    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
     analyzeByAge(df)

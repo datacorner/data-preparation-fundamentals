@@ -1,25 +1,6 @@
 import pandas as pd
 import re 
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
-
-def initialize():
-    """ Read the source file (Titanic disaster) and provide a dataframe
-    Returns:
-        dataframe: titanic dataset
-    """
-    # read the CSV file
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
-    df['SurvivedProba'] = df['Survived']
-    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
-    return df
-
 def parse_name(name):
     """ This function parses a name string into its components, extracting the 
         individual names, any title (e.g., Mr., Dr.), and any prefix 
@@ -34,8 +15,8 @@ def parse_name(name):
             - 'prefix' (str or None): The identified prefix (if any).
             - 'title' (str or None): The identified title (if any).
     """
-    name_without_parentheses = re.sub(r'\([^)]*\)', '', name).strip() #A
-    words = re.findall(r'\b\w+\b|\.|,', name_without_parentheses) #B
+    name_without_parentheses = re.sub(r'\([^)]*\)', '', name).strip()
+    words = re.findall(r'\b\w+\b|\.|,', name_without_parentheses)
     names = []
     prefix = None
     title = None
@@ -57,8 +38,8 @@ def parse_name(name):
     }
 
 if __name__ == "__main__":
-    df = initialize()
-    df['NameComponents'] = df['Name'].apply(parse_name) #C
+    df = pd.read_csv("../data/titanic/train.csv")
+    df['NameComponents'] = df['Name'].apply(parse_name)
     df['NameList'] = df['NameComponents'].apply(lambda x: x['names'])
     df['Prefix'] = df['NameComponents'].apply(lambda x: x['prefix'])
     df['Title'] = df['NameComponents'].apply(lambda x: x['title'])

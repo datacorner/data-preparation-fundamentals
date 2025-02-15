@@ -1,25 +1,6 @@
 import pandas as pd
 import re 
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
-
-def initialize():
-    """ Read the source file (Titanic disaster) and provide a dataframe
-    Returns:
-        dataframe: titanic dataset
-    """
-    # read the CSV file
-    df = pd.read_csv(C.DATASET_FOLDER + "titanic/train.csv")
-    # survived=0 means the passenger died, survived=1 means he survived, let's make it more clear in the dataset:
-    df['SurvivedProba'] = df['Survived']
-    df['SurvivedLabel'] = df['Survived'].map({1: 'alive' , 0: 'dead'})
-    return df
-
 def name_to_word_pattern(name):
     """
         This function takes a name string as input and generates a word pattern
@@ -36,7 +17,7 @@ def name_to_word_pattern(name):
             - 'NAME' represents other name components.
             - ',' and '.' represent punctuation.
     """
-    name_without_parentheses = re.sub(r'\([^)]*\)', '', name).strip() #A
+    name_without_parentheses = re.sub(r'\([^)]*\)', '', name).strip()
     words = re.findall(r'\b\w+\b|\.|,', name_without_parentheses)
     pattern = []
     for word in words:
@@ -55,6 +36,6 @@ def name_to_word_pattern(name):
     return ' '.join(pattern)
 
 if __name__ == "__main__":
-    df = initialize()
+    df = pd.read_csv("../data/titanic/train.csv")
     df['NamePattern'] = df['Name'].apply(name_to_word_pattern)
     print(df['NamePattern'].value_counts())
