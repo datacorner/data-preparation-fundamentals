@@ -1,11 +1,5 @@
 import pandas as pd
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def display_missing_values(df):
     """
     Displays the percentage of missing values for each column in a DataFrame and prints the shape of the DataFrame.
@@ -20,5 +14,5 @@ def display_missing_values(df):
     print("Rows: {} | Columns: {}".format(df.shape[0], df.shape[1]))
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "bikerental/rental_train.csv", encoding='UTF8')
+    df = pd.read_csv("../data/bikerental/rental_train.csv", encoding='UTF8')
     display_missing_values(df)
