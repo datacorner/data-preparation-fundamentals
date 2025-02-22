@@ -2,23 +2,18 @@ from bertopic import BERTopic
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 if __name__ == "__main__":
-    dfnews = pd.read_csv(C.DATASET_FOLDER + "bbcnews/bbc_news.csv", encoding='UTF8')
+    dfnews = pd.read_csv("../data/bbcnews/bbc_news.csv", encoding='UTF8')
     
     # Combine title and description
     dfnews['text'] = dfnews['title'] + ' ' + dfnews['description']
     # Preprocess dataset
     vectorizer = CountVectorizer(stop_words="english", min_df=0.10, max_df=0.85)
+    
     # Build a BERTopic model
     topic_model = BERTopic(vectorizer_model=vectorizer, min_topic_size=20)
     topics, probs = topic_model.fit_transform(dfnews['text'])
-    dfnews['topic'] = topics # Add the 'topic' column to dfnews
+    dfnews['topic'] = topics 
     # Get the topic info
     topic_info = topic_model.get_topic_info()
     # Create a dictionary mapping topic numbers to topic names

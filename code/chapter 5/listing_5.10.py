@@ -2,12 +2,6 @@ import pytesseract
 from PIL import Image
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 """
     Installing Tesseract on windows
         1) Download the Tesseract OCR installer for Windows from its official repositor
@@ -24,7 +18,7 @@ import common as C
 """
 
 if __name__ == "__main__":
-    img = Image.open(C.DATASET_FOLDER + "/images/test-image.png")
+    img = Image.open("../data/images/test-image.png")
 
     plt.imshow(img)
     plt.axis('off')

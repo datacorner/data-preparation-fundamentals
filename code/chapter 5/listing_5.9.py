@@ -2,14 +2,8 @@ from bertopic import BERTopic
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 if __name__ == "__main__":
-    dfnews = pd.read_csv(C.DATASET_FOLDER + "bbcnews/bbc_news.csv", encoding='UTF8')
+    dfnews = pd.read_csv("../data/bbcnews/bbc_news.csv", encoding='UTF8')
     
     # Combine title and description
     dfnews['text'] = dfnews['title'] + ' ' + dfnews['description']
