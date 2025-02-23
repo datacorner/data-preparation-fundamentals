@@ -1,11 +1,5 @@
 import pandas as pd
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def create_dimension_tables(df):
     """Create dimension tables
     Args:
@@ -52,7 +46,7 @@ def create_fact_table(df, customer_dim, product_dim, date_dim):
     return fact_table
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
     data = df[ ['Order Date', 'Ship Date', 'Ship Mode',
                 'Customer Name', 'Segment', 'Country', 'City', 'State',
                 'Postal Code', 'Region',  'Category', 'Sub-Category',
@@ -61,4 +55,3 @@ if __name__ == "__main__":
     customer_dim, product_dim, date_dim = create_dimension_tables(data)
     fact_table = create_fact_table(data, customer_dim, product_dim, date_dim)
     print(fact_table.head())
-    print(customer_dim.head())

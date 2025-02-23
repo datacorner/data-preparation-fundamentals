@@ -1,12 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def classify_funnel_stage(orders):
     """
     Classifies a customer into different funnel stages based on their order count.
@@ -30,31 +24,27 @@ def classify_funnel_stage(orders):
         return 'Loyal Customer'
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
 
     df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
-
-    # Group by Customer ID to get unique customer metrics
     customer_orders = df.groupby('Customer ID').agg({
-        'Order ID': 'count',           # Total number of orders
-        'Sales': 'sum',                # Total sales per customer
-        'Profit': 'sum',               # Total profit per customer
-        'Order Date': ['min', 'max']   # First and last purchase dates
+        'Order ID': 'count',           
+        'Sales': 'sum',                
+        'Profit': 'sum',               
+        'Order Date': ['min', 'max']   
     }).reset_index()
 
-    # Rename columns for clarity
     customer_orders.columns = [
         'Customer ID', 'Total Orders', 'Total Sales',
         'Total Profit', 'First Purchase', 'Last Purchase'
     ]
 
-    # Calculate customer tenure
     customer_orders['Customer Tenure Days'] = (
         customer_orders['Last Purchase'] - customer_orders['First Purchase']
     ).dt.days
 
-    customer_orders['Funnel Stage'] =  customer_orders['Total Orders'].apply(classify_funnel_stage) 
-    funnel_distribution = customer_orders['Funnel Stage'].value_counts(normalize=True) * 100 
+    customer_orders['Funnel Stage'] =  customer_orders['Total Orders'].apply(classify_funnel_stage) #A
+    funnel_distribution = customer_orders['Funnel Stage'].value_counts(normalize=True) * 100 #B
 
     plt.figure(figsize=(10, 6))
     funnel_distribution.plot(kind='bar')

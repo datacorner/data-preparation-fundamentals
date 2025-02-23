@@ -1,11 +1,5 @@
 import pandas as pd
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def create_time_features(series):
     """
     Generates advanced time-based features for a given time series.
@@ -29,7 +23,7 @@ def create_time_features(series):
     })
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
     
     # Convert Order Date to datetime
     df['Order Date'] = pd.to_datetime(df['Order Date'])

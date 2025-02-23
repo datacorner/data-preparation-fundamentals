@@ -2,12 +2,6 @@ import pandas as pd
 from statsmodels.tsa.seasonal import seasonal_decompose
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def create_time_features(series):
     """
     Generates advanced time-based features for a given time series.
@@ -31,7 +25,7 @@ def create_time_features(series):
     })
 
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
     
     # Convert Order Date to datetime
     df['Order Date'] = pd.to_datetime(df['Order Date'])
@@ -51,8 +45,8 @@ if __name__ == "__main__":
     # Add these features to daily_sales
     daily_sales = pd.concat([daily_sales, time_features], axis=1)
 
-    decomposition = seasonal_decompose(daily_sales['Sales'], period=30) 
-    daily_sales['Seasonal_Component'] = decomposition.seasonal 
+    decomposition = seasonal_decompose(daily_sales['Sales'], period=30)  #A
+    daily_sales['Seasonal_Component'] = decomposition.seasonal  #B
     daily_sales['Trend_Component'] = decomposition.trend
 
     plt.figure(figsize=(15,8))

@@ -1,12 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def classify_funnel_stage(orders):
     """
     Classifies a customer into different funnel stages based on their order count.
@@ -30,7 +24,7 @@ def classify_funnel_stage(orders):
         return 'Loyal Customer'
     
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
 
     # Close any existing plots
     plt.close('all')
@@ -44,9 +38,9 @@ if __name__ == "__main__":
         segment_analysis['Segment'],
         segment_analysis['Funnel Stage'],
         normalize='index'
-    ) * 100
+    ) * 100 #A
     # Create single figure and axis
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6)) #B
     # Plot on the specific axis
     segment_funnel.plot(kind='bar', stacked=True, ax=ax)
     # Set titles and labels
@@ -60,4 +54,4 @@ if __name__ == "__main__":
     plt.show()
     
     # Print segment funnel percentages
-    print(segment_funnel)
+    print(segment_funnel) #C

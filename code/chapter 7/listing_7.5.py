@@ -1,12 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import common as C
-
 def plot_datapoints(datastore, datastore_filled):
     """
     Plots and compares the original and filled data points for 'Sales' during January 2016.
@@ -63,7 +57,7 @@ def plot_datapoints(datastore, datastore_filled):
     print("Number of added points: {}".format(len(filled_points)))
     
 if __name__ == "__main__":
-    df = pd.read_csv(C.DATASET_FOLDER + "superstore/samplesuperstore.csv", encoding='UTF8')
+    df = pd.read_csv("../data/superstore/samplesuperstore.csv", encoding='UTF8')
 
     # Convert the 'Order Date' column to datetime
     df['Order Date'] = pd.to_datetime(df['Order Date'])
