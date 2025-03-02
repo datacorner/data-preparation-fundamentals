@@ -1,9 +1,3 @@
-# Import common constants and functions
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from common import get_gemini_response, clean_gemini_response, DATASET_FOLDER
-
 import pandas as pd
 
 def collect_metadata(data):
@@ -61,7 +55,7 @@ def build_prompt(chunk, metadata):
     return prompt
 
 if __name__ == "__main__":
-    df = pd.read_csv(DATASET_FOLDER + "titanic/train.csv")
+    df = pd.read_csv("../data/titanic/train.csv")
     # Collect metadata for all the dataset
     metadata = collect_metadata(df)
     # Chunks the dataset
