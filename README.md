@@ -64,7 +64,10 @@ Some datasets have been modified from their original versions for compatibility 
 The Alteryx exports (yxmd files) can be found [here](./code/chapter%209/), you can just copy the file on your desktop and open them by using the Alteryx client.
 
 ### Chapter 10 - Data preparation at scale
-Available soon
+**Note:** In this chapter, we’ll use [databricks Community Edition](https://community.cloud.databricks.com) to illustrate how to manage a dataset in a ditributed environment (Spark).
+* [Messy Food Waste Dataset](https://www.kaggle.com/competitions/messy-food-waste-prediction-dataset/data)
+* [Chapter python notebooks](./code/chapter%210/)
+* [Dataset used in the the book](./data/messy-food-waste/)
 
 ### Chapter 11 - Trends and future challenges
 Available soon
