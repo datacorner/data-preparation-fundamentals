@@ -162,3 +162,41 @@ Alteryx Designer requires a Windows operating system, with recommended specifica
 The entire process is designed to take only a few minutes, ensuring you can begin exploring Alteryx’s features right away without needing any advanced technical setup.
 
 **Note**: the exports provided in this repository have been created with **Alteryx v2024.1.1.93  Patch: 3**
+
+# Signup to a databricks community adition account
+# Steps to Create a Databricks Community Account
+
+1. **Visit the Community Edition page**
+   - Go to [databricks.com/try-databricks](https://databricks.com/try-databricks)
+   - Look for the "Get started with Community Edition" option
+
+2. **Fill out the registration form**
+   - Enter your name, email address, and create a password
+   - Accept the terms of service
+   - Complete any CAPTCHA verification if presented
+
+3. **Verify your email address**
+   - Check your inbox for a verification email from Databricks
+   - Click the verification link in the email
+
+4. **Set up your workspace**
+   - After verification, you'll be redirected to set up your Databricks workspace
+   - Choose a workspace name (optional)
+   - Select your preferred cloud provider region
+
+5. **Access your Community Edition workspace**
+   - Once setup is complete, you'll be redirected to your new Databricks workspace
+   - The interface will include a sidebar with options for notebooks, data, clusters, etc.
+
+6. **Create your first cluster**
+   - Navigate to "Compute" or "Clusters" in the sidebar
+   - Click "Create Cluster"
+   - Configure your cluster settings (Community Edition has limitations on resources)
+   - Start your cluster
+
+7. **Begin using Databricks**
+   - Create a new notebook from the workspace homepage
+   - Attach your notebook to the cluster you created
+   - Start exploring Databricks' features and capabilities
+
+Note that the Community Edition has some limitations compared to paid versions, including compute resources, storage, and certain features, but it's an excellent way to learn and experiment with Databricks.
