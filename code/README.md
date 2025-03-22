@@ -163,8 +163,8 @@ The entire process is designed to take only a few minutes, ensuring you can begi
 
 **Note**: the exports provided in this repository have been created with **Alteryx v2024.1.1.93  Patch: 3**
 
-# Signup to a databricks community adition account
-# Steps to Create a Databricks Community Account
+# Signup to a databricks community Edition account
+These are the steps to Create a Databricks Community Account:
 
 1. **Visit the Community Edition page**
    - Go to [databricks.com/try-databricks](https://databricks.com/try-databricks)
