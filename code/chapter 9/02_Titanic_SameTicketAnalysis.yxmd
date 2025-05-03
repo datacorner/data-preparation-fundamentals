@@ -3,12 +3,12 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="294" y="222" />
+        <Position x="54" y="210" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\git\dataprep-handbook\Titanic disaster\train.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\git\dataprep-handbook\data\titanic\train.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>True</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -27,20 +27,23 @@
           <DefaultAnnotationText>train.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="PassengerId" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Survived" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Pclass" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Name" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Sex" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Age" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="SibSp" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Parch" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Ticket" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Fare" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Cabin" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
-            <Field name="Embarked" size="254" source="File: D:\git\dataprep-handbook\Titanic disaster\train.csv" type="V_String" />
+            <Field name="PassengerId" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Survived" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Pclass" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Name" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Sex" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Age" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="SibSp" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Parch" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Ticket" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Fare" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Cabin" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
+            <Field name="Embarked" size="254" source="File: D:\git\dataprep-handbook\data\titanic\train.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -48,7 +51,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="462" y="66" />
+        <Position x="222" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -67,7 +70,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="606" y="66" />
+        <Position x="366" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -98,7 +101,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="702" y="210" />
+        <Position x="462" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -129,11 +132,11 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="822" y="210" />
+        <Position x="582" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\benoit\AppData\Local\Temp\Alteryx\Engine_3852_0e837bd8ffff4c2ea35b67b7d969df6c_\Engine_3852_078b6296ce778342956e6576b0f59b5c~.yxdb</TempFile>
+          <TempFile>C:\Users\benoit\AppData\Local\Temp\Alteryx\Engine_12912_86e61b041e4e482cbc3d3b62a5834b1e_\Engine_12912_9e2101b3a3d4824c862f2d9fa3c5c5ab~.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>

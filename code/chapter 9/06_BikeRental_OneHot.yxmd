@@ -51,7 +51,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\git\dataprep-handbook\bikerental\rental_train.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">D:\git\dataprep-handbook\data\bikerental\rental_train.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>True</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -75,15 +75,15 @@
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="datetime" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="season" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="workingday" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="weather" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="temp" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="feels like temp" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="humidity" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="windspeed" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
-            <Field name="Nb of rental" size="254" source="File: D:\git\dataprep-handbook\bikerental\rental_train.csv" type="V_String" />
+            <Field name="datetime" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="season" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="workingday" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="weather" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="temp" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="feels like temp" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="humidity" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="windspeed" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
+            <Field name="Nb of rental" size="254" source="File: D:\git\dataprep-handbook\data\bikerental\rental_train.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -205,7 +205,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\benoit\AppData\Local\Temp\Alteryx\Engine_4092_feb19e3b83f84ac98b5651f738125cf0_\Engine_4092_8cfdc6eecb4eb54199987d4055a78442~.yxdb</TempFile>
+          <TempFile>C:\Users\benoit\AppData\Local\Temp\Alteryx\Engine_1060_4f2f9ebc9ab2482c8c54026403729f4a_\Engine_1060_4c9653f8f6610942be319ce7d98ba804~.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
