@@ -69,8 +69,5 @@ The Alteryx exports (yxmd files) can be found [here](./code/chapter%209/), you c
 * [Chapter python notebooks](./code/chapter%2010/)
 * [Dataset used in the the book](./data/messy-food-waste/)
 
-### Chapter 11 - Trends and future challenges
-Available soon
-
 # Profiling
 Most of the datasets used in this book have already been profiled. The outcomes can be found [here](/profiles).
