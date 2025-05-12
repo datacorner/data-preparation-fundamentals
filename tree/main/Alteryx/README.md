@@ -1,1 +1,1 @@
-[Follow the link here](./code/chapter%209/)
+[Follow the link here](./tree/main/Alteryx)
