@@ -1,4 +1,4 @@
-# Data preparation handbook (code and resources)
+# Data preparation for AI and Analytics (code and resources)
 [![](img/Cover-book-MEAP.jpg)](https://mng.bz/1XaR)
 
 The [book is currently available in the Manning Early Access Program (MEAP)](https://mng.bz/1XaR)), Feel free to take advantage of this opportunity and share your valuable feedback!
