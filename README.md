@@ -1,9 +1,30 @@
-# Data preparation for AI and Analytics (code and resources)
-[![](img/Cover-book-MEAP.jpg)](https://mng.bz/1XaR)
+# Data preparation for AI and Analytics (Book's resources)
 
+<img src="img/Cover-book-MEAP.jpg" width="250" alt="Data preparation for AI and Analytics">
 The [book is currently available in the Manning Early Access Program (MEAP)](https://mng.bz/1XaR)), Feel free to take advantage of this opportunity and share your valuable feedback!
 
-## Requirements
+The Data Preparation for AI and Analytics is a practical guide to cleaning and organizing the messy, tangled data you’ll encounter in the real world. You’ll learn techniques you can use to get your data ready for almost any task—from reports and analysis, to building machine learning models.
+
+In Data Preparation for AI and Analytics you’ll:
+
+* Understand the importance of data quality
+* Use AI to clean and prepare data
+* Take advantage of Python and visual tools like Alteryx
+* Apply the right data preparation technique for the right outcome
+
+Data Preparation for AI and Analytics is for anyone who works with data, from seasoned data architects to marketing pros and business analysts. It presents data preparation methods with clear language and concrete examples. You’ll explore tried-and-true approaches along with emerging generative AI techniques. You’ll especially appreciate the insights into automation and data governance.
+
+## About the book
+Data Preparation for AI and Analytics teaches you to tackle the challenges you’ll face as you work with data. You’ll master popular data wrangling tools like Python and Alteryx. Complex data prep concepts are broken down into clear, manageable steps and fully illustrated with engaging data sets—including data on the Titanic disaster, rating video games, sentiment analysis of Los Angeles restaurant recommendations, and more. The book is packed with vital advice for complex tasks, including merging multiple data sets, alerting systems for data quality, and scaling data preparation into large cloud-based pipelines. Learn universal techniques for data enrichment and transformation, and specialized approaches optimized for machine learning, analytics, and creating AI.
+
+## About the reader
+For data workers of all skill levels, who know Python and the basics of SQL.
+
+## About the author
+Benoît Cayla is a computer engineer with over 25 years of data management experience and an expert in data management and AI. Throughout his career, he has had the privilege of working with major players like IBM, Informatica, and Tableau, contributing to large-scale projects in manufacturing, insurance, and finance. 
+
+# The book resources
+## Requirements 
 [Install and configure your environment](/code/README.md)
 
 ## Resources available per chapter
