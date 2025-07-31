@@ -1,1 +1,0 @@
-The Alteryx export files have been relocated to: [Follow the link here](../code/chapter%209/)
