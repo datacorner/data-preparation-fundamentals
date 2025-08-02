@@ -1,5 +1,8 @@
 # The Art of Data Alchemy (Book's resources)
 
+<p align="center">
+<img src="./img/Image_cover.png" alt="The art of Data Alchemy" width="300">
+</p>
 The The Art of Data Alchemy is a practical guide to cleaning and organizing the messy, tangled data you’ll encounter in the real world. You’ll learn techniques you can use to get your data ready for almost any task—from reports and analysis, to building machine learning models.
 
 In Data Preparation for AI and Analytics you’ll:
