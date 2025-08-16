@@ -15,7 +15,8 @@ def analyzeSurvivalRateByGenderAge(titanic_data):
     # Group by 'Sex', 'AgeGroup', and 'Survived', then count the number of occurrences
     survival_by_gender_age = titanic_data.groupby(['Sex', 'AgeGroup', 'Survived']).size().unstack(fill_value=0)
     # Calculate survival rates by dividing the number of survivors by the total number of passengers in each group
-    survival_by_gender_age['SurvivalRate'] = survival_by_gender_age[1] / (survival_by_gender_age[0] + survival_by_gender_age[1])
+    survival_by_gender_age['SurvivalRate'] = survival_by_gender_age[1] / \
+                                            (survival_by_gender_age[0] + survival_by_gender_age[1])
     # Separate data for male and female
     male_survival = survival_by_gender_age.loc['male']['SurvivalRate']
     female_survival = survival_by_gender_age.loc['female']['SurvivalRate']
